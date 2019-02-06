@@ -1,0 +1,19 @@
+** Project name:
+
+TBD
+
+** Project repository: cis330projectw19
+
+** Team members: Newton Blair, John Gauthier, Vincent Huynh-Watkins, Cameron McKeown
+
+** Description (1-3 paragraphs):
+
+TODO
+
+** Implementation approach:
+
+TODO
+
+** Risk management plan (max 1 paragraph):
+
+TODO

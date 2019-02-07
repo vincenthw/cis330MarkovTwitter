@@ -1,14 +1,14 @@
-** Project name:
-
-TBD
+** Project name: Social Clout Generator 
 
 ** Project repository: cis330projectw19
 
 ** Team members: Newton Blair, John Gauthier, Vincent Huynh-Watkins, Cameron McKeown
 
-** Description (1-3 paragraphs):
+** Description (1-3 paragraphs): 
 
-TODO
+Using a markov chain implemented in C++ we will feed data from trending topics to generate sentences/quotes. 
+
+
 
 ** Implementation approach:
 

@@ -6,14 +6,14 @@
 
 ** Description (1-3 paragraphs): 
 
-Using a markov chain implemented in C++ we will feed data from trending topics to generate sentences/quotes. 
+Using a markov chain implemented in C++ we will feed data from trending topics to generate sentences/quotes. To do this, we will integrate some of twitters API's, to crawl the top trending tweets from user input hashtag(s), or twitter handle(s) within the last 24 hours. This data will be fed into the markov chain algorithm to randomly generate a coorelating tweet/response.
 
 
 
 ** Implementation approach:
 
-TODO
+As mentioned above we will be utilizing twitter API's to extract tweets correlated with the users input. We will integrate a crawler to extract the tweet(s) data. This data will be fed to the Markov chain algorithm which will analyze word correlation, and develop related tweets and responses that will then be output to the user or to a twitter account.
 
 ** Risk management plan (max 1 paragraph):
 
-TODO
+We have modularized the process into two major components that can be developed at the same time. These two major components are the tweet crawler and the algorithm itself. This will enable proficient utilization of time and allocation of resources helping to enable on time delivery of the project. We will also develop a schedule with speculative deadlines to ensure that each week is productive.

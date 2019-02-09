@@ -33,4 +33,5 @@ for i in range(n_words):
 
 ' '.join(chain)
 
-print(chain)
+
+print(*chain)

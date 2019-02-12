@@ -1,0 +1,4 @@
+2/12
+Wrote first iteration of python prototype of markov chain generator. The prototype takes a text file, generates a 2d frequency dictionary, and generates a chain of words based on weighted relative probability. The weighted probability comes from the frequency of words. 
+
+Next step in the prototype is making a coherent sentence structure: picking a first-word that makes sense, and ending the sentence with proper punctuation.

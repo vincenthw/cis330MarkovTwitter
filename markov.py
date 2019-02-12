@@ -2,7 +2,7 @@
 
 import random
 
-words = open('dream_speech.txt').read().split()
+words = open('text_files/dream_speech.txt').read().split()
 
 
 ##### make 2d word frequency dict

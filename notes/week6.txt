@@ -9,7 +9,7 @@ Created prototype with altered markov chain algorithm. Looks at pairs of words i
 
 2/13
 Twitter API notes and necessities:
-Good information source: http://adilmoujahid.com/posts/2014/07/twitter-analytics/ - notes that we need to secure 4 pieces of info from twitter.
+Good information source: http://adilmoujahid.com/posts/2014/07/twitter-analytics/ - notes that we need to secure 4 pieces of info from twitter, coded in python but helpful.
 -We will have to make a Twitter Developer account.
--We will utilize a library to help obtain the information from twitter: https://github.com/swatkat/twitcurl ~twitcurl library
+-We will utilize a C++ library to help obtain the information from twitter: https://github.com/swatkat/twitcurl ~twitcurl library
 -How to set up authentication keys for account, so that we may use the API's: https://code.google.com/archive/p/twitcurl/wikis/TwitcurlOAuthFlow.wiki

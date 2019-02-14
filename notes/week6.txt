@@ -6,3 +6,9 @@ Next step in the prototype is making a coherent sentence structure: picking a fi
 
 2/13
 Created prototype with altered markov chain algorithm. Looks at pairs of words instead of individual words to create sentences closer to original usage. Results in less nonsensical sentences, but requires a larger data set to have interesting/unique results.
+
+2/13
+Twitter API notes and necessities:
+Good information source: http://adilmoujahid.com/posts/2014/07/twitter-analytics/ - notes that we need to secure 4 pieces of info from twitter.
+-We will have to make a Twitter Developer account.
+-We will utilize a library to help obtain the information from twitter: https://github.com/swatkat/twitcurl ~twitcurl library

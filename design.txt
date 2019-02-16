@@ -1,11 +1,12 @@
-Divded into N parts:
+Divded into 4 parts:
 
 
-
+ Part A:
 1) C++ code that reads a text file into a hashmap with buckets. Each bucket is a struct Word with members string name and int count. 
 
-2) C++ code Interfacing with twitcurl to create a text file of tweets. 
+Cam: 2) C++ code Interfacing with twitcurl to create a text file of tweets. 
 
+Part B:
 3) C++ code that creates a message of 280 characters or less using a trending word and then the hashmap 
 
-3) Possibly a web app in order to use the twitter API and host a web server on ix 
+4) Create a web app in order to use the twitter API and host a web server on ix 

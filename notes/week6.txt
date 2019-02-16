@@ -16,3 +16,6 @@ Good information source: http://adilmoujahid.com/posts/2014/07/twitter-analytics
 
 2/16
 -Another information source for Twitter API (further reserach): https://developer.twitter.com/en/docs/basics/getting-started.html
+- Discussed each group member's role, how we will split things up, 
+necessary parts of the program and other such details (see design.txt)
+-Created a developer account and looked into creating an API key

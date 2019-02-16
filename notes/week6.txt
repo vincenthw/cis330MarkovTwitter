@@ -13,3 +13,6 @@ Good information source: http://adilmoujahid.com/posts/2014/07/twitter-analytics
 -We will have to make a Twitter Developer account.
 -We will utilize a C++ library to help obtain the information from twitter: https://github.com/swatkat/twitcurl ~twitcurl library
 -How to set up authentication keys for account, so that we may use the API's: https://code.google.com/archive/p/twitcurl/wikis/TwitcurlOAuthFlow.wiki
+
+2/16
+-Another information source for Twitter API (further reserach): https://developer.twitter.com/en/docs/basics/getting-started.html

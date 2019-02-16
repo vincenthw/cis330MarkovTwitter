@@ -1,12 +1,24 @@
 Divded into 4 parts:
 
+Server Side code in C++ (Old but good)
 
- Part A:
+ Part A-Markov Chain (John/Vince):
+
 1) C++ code that reads a text file into a hashmap with buckets. Each bucket is a struct Word with members string name and int count. 
-
-Cam: 2) C++ code Interfacing with twitcurl to create a text file of tweets. 
-
-Part B:
+2) JSON parser potentially
 3) C++ code that creates a message of 280 characters or less using a trending word and then the hashmap 
 
-4) Create a web app in order to use the twitter API and host a web server on ix 
+
+Part B– API Extraction: (Cam/Newton):
+
+1) C++ code Interfacing with twitcurl to create a text file of tweets. 
+2) Create a web app in order to use the twitter API and host a web server on ix – C++ backend 
+
+
+TODO:
+
+-Begin developing each portion and go live by end of week 7 with v1
+	* make initial web app 
+	* make initial server side code
+	* learn how to interface with twitcurl
+	* 

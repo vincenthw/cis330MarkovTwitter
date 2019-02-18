@@ -19,3 +19,6 @@ Good information source: http://adilmoujahid.com/posts/2014/07/twitter-analytics
 - Discussed each group member's role, how we will split things up, 
 necessary parts of the program and other such details (see design.txt)
 -Created a developer account and looked into creating an API key
+
+2/17
+Got twitCurl working with test account and simple twitter api call. Now that we know that it works we can begin the process of creating the framework to grab tweets and format them for the markov chain algorithm. See twitcurl_test for code.

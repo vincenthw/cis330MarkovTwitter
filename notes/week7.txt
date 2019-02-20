@@ -1,0 +1,31 @@
+--2/19/19--
+	twiiter acctount "330twitbot" has been created and approved by twitter development. we now have been given api keys for use
+	
+	twitcurl git: https://github.com/swatkat/twitcurl/blob/master/libtwitcurl/HMAC_SHA1.cpp
+		oauthlib.cpp:
+			- reads,saves,gives token consumerKey
+				-getStringFromOAuthKeyValuePairs()
+					- sorted string of OAuth parameters
+
+		twitcurl.cpp:
+https://github.com/swatkat/twitcurl/blob/master/libtwitcurl/twitcurl.h
+			twitCurl::search()
+				-  method to return tweets that match a specified query.
+			twitCurl::statusUpdate():
+				- method to update new status message in twitter profile
+			twitCurl::timelinePublicGet()
+				- @description: method to get public timeline
+			twitCurl::featuredUsersGet()
+				- method to get featured users
+			 twitCurl::mentionsGet()
+				- method to get mentions
+			twitCurl::timelineUserGet()
+				- method to get mentions
+
+			twitCurl::userGet()
+				-method to get a user's profile
+					- twitCurl::userLookup()
+						-method to get a number of user's profiles
+			
+			twitCurl::trendsGet()
+				-gets trends.			

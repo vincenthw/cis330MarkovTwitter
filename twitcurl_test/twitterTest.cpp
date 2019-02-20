@@ -3,16 +3,15 @@
 int main()
 {
     twitCurl twitterObj;
-    std::string consumerKey("");
-    std::string consumerSecret("");
+    std::string consumerKey("pIPeKJqCtW2bXkc5DnbFq039Z");
+    std::string consumerSecret("DBahC1k4gkuGEAWlcrsglqUyce2piIPU1XRDdwSlQYTQc5gzMv");
 
-    twitterObj.getOAuth().setConsumerKey("KT0dbqBaPOjJNFobv09bAFwro");
-    twitterObj.getOAuth().setConsumerSecret("ChSGqvuccPdOxuc4N6sTTqs7nwxWJtbfrrv9DVXPfKfQuvjktj"); // Consumer keys taken from developer.twitter.com/apps
+    twitterObj.getOAuth().setConsumerKey(consumerKey);
+    twitterObj.getOAuth().setConsumerSecret(consumerSecret); // Consumer keys taken from developer.twitter.com/apps
 
-    
     /* This code only neccessary to run the first time to get TokenKey and TokenSecret */
-    // twitterObj.setTwitterUsername("INSERT_USERNAME_HERE"); // Twitter account user
-    // twitterObj.setTwitterPassword("INSERT_PASSWORD_HERE"); // Twitter account pass
+    // twitterObj.setTwitterUsername("330twitbot"); // Twitter account user
+    // twitterObj.setTwitterPassword("camnewt"); // Twitter account pass
 
     // std::string authUrl;
     // twitterObj.oAuthRequestToken(authUrl);
@@ -26,8 +25,8 @@ int main()
     // std::cout << oAuthTokenKey << std::endl; // print the TokenKey and SecretKeys
     // std::cout << oAuthTokenSecret << std::endl << std::endl;
 
-    twitterObj.getOAuth().setOAuthTokenKey("2554059522-W2hCWOugcPYjf15vCqoUfamWWlfOn1HNcE7Ehbp"); // Taken from the print statements above
-    twitterObj.getOAuth().setOAuthTokenSecret("MvS8YSMuphpgVNjPRnzuJOP1cxcczJXwjY7cyc0ZDItM3");
+    twitterObj.getOAuth().setOAuthTokenKey("1098008012168417280-LSttNTRIxCV9IVqaEM0RAgOrfaHimr"); // Taken from the print statements above
+    twitterObj.getOAuth().setOAuthTokenSecret("BXF0UrWC7ulUG1R6gFCdW4ifvKBusmH1B1RsFA96Txc9B");
 
     std::string replyMsg;
     if (twitterObj.accountVerifyCredGet()) // if account credentials are valid

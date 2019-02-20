@@ -3,15 +3,16 @@
 int main()
 {
     twitCurl twitterObj;
+    std::string consumerKey("");
+    std::string consumerSecret("");
 
     twitterObj.getOAuth().setConsumerKey("KT0dbqBaPOjJNFobv09bAFwro");
     twitterObj.getOAuth().setConsumerSecret("ChSGqvuccPdOxuc4N6sTTqs7nwxWJtbfrrv9DVXPfKfQuvjktj"); // Consumer keys taken from developer.twitter.com/apps
 
-    //*************************************************************************************************//
-    //***** This code only neccessary to run the first time to get TokenKey and TokenSecret ***********//
-    //*************************************************************************************************//    
-    // twitterObj.setTwitterUsername("chobungusPizza"); // My throwaway twitter account, lol
-    // twitterObj.setTwitterPassword("minisculebartender"); // Account password
+    
+    /* This code only neccessary to run the first time to get TokenKey and TokenSecret */
+    // twitterObj.setTwitterUsername("INSERT_USERNAME_HERE"); // Twitter account user
+    // twitterObj.setTwitterPassword("INSERT_PASSWORD_HERE"); // Twitter account pass
 
     // std::string authUrl;
     // twitterObj.oAuthRequestToken(authUrl);

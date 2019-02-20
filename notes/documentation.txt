@@ -1,2 +1,7 @@
 An area to document building of the application (i.e. how to make, dependencies etc.)
 
+Dependencies:
+    libcurl-dev (on ubuntu, package libcurl4-openssl-dev)
+    twitcurl
+
+

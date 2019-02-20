@@ -1,6 +1,7 @@
 --2/19/19--
 	twiiter acctount "330twitbot" has been created and approved by twitter development. we now have been given api keys for use
-	
+	banana republic pant?
+
 	twitcurl git: https://github.com/swatkat/twitcurl/blob/master/libtwitcurl/HMAC_SHA1.cpp
 		oauthlib.cpp:
 			- reads,saves,gives token consumerKey

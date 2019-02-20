@@ -1,0 +1,2 @@
+An area to document building of the application (i.e. how to make, dependencies etc.)
+

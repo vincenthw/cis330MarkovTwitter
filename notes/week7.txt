@@ -30,3 +30,5 @@ https://github.com/swatkat/twitcurl/blob/master/libtwitcurl/twitcurl.h
 			
 			twitCurl::trendsGet()
 				-gets trends.			
+2/19
+Cleaned up twitcurl_test code, adding a makefile. This is used to ensure the group can all compile and run the code required for the project.

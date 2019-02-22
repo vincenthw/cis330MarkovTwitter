@@ -1,9 +1,13 @@
 #include "markov.hpp"
 #include <fstream>
+#include <iostream>
 
 using namespace markov;
 
-word::word() { }
+word::word(string key) { 
+	this->key = key;
+	this->count = 1;
+}
 int word::getCount() {
 	return this->count;
 }
@@ -20,8 +24,15 @@ void word::setKey(string k) {
 
 
 markovChain::markovChain() {
-	this->wordCount = 0;
-}
-void markovChain::setChain(fstream &input) {
 
+}
+
+void markovChain::setChain(fstream &input) {
+	input.open("twitter.txt");
+	if(this->chain.count("twitter") == 0) {
+		word w("twitter");
+		chain.insert(make_pair("twitter", w));
+	}
+	for(auto i : chain)
+		cout << i.first << endl;
 }

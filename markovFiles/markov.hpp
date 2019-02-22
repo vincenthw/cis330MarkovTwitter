@@ -4,13 +4,12 @@
 #include <string>
 #include <unordered_map>
 
-using namespace std;
 
 namespace markov {
-
+	using namespace std;
 	class word {
 	public:
-		word();
+		word(string);
 		int getCount();
 		void setCount(int);
 		string getKey();
@@ -26,7 +25,6 @@ namespace markov {
 		void setChain(fstream &input);
 	private:
 		unordered_map<string, word>  chain;
-		int wordCount;
 	};
 }
 

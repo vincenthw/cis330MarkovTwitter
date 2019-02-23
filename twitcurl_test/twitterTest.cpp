@@ -1,6 +1,7 @@
 #include "twitterTest.h"
 #include <iostream>
 #include "jsoncpp/json/json.h"
+#include <fstream>
 
 int main()
 {
@@ -33,13 +34,24 @@ int main()
     std::string replyMsg;
     if (twitterObj.accountVerifyCredGet()) // if account credentials are valid
     {
-        twitterObj.search("nba", "1"); // Get 50 nba tweets
+        twitterObj.search("nba", "10"); // Get 50 nba tweets
         twitterObj.getLastWebResponse(replyMsg); //set replyMsg to the twitCurl reponse
         printf("\ntwitterClient:: twitCurl::accountVerifyCredGet web response:\n%s\n", replyMsg.c_str());
+
+        //Parse Json data so specific fields can be accessed
         Json::Reader reader;
         Json::Value val;
         reader.parse(replyMsg, val);
-        std::cout << val["statuses"][0]["text"]; //Format to access text is map, array, map
+
+        //Create Writer to write text to tweetText.txt to be passed to Markov chain
+        std::ofstream outfile("tweetText.txt");
+
+        for(int i=0; i < 10; i++){ //Have to loop to extract from multiple tweets
+            outfile << val["statuses"][i]["text"] << std::endl; //Format to access text is map, array, map
+        }
+        outfile.close();
+
+
     }
     else
     {

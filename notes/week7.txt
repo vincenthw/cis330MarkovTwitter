@@ -34,4 +34,6 @@ https://github.com/swatkat/twitcurl/blob/master/libtwitcurl/twitcurl.h
 Cleaned up twitcurl_test code, adding a makefile. This is used to ensure the group can all compile and run the code required for the project.
 
 2/22
-https://linux.tips/programming/how-to-install-and-use-json-cpp-library-on-ubuntu-linux-os - link to website for how I installed jsoncpp library. Struggling to use
+- Discovered need for another library to help parse JSON data.
+-https://linux.tips/programming/how-to-install-and-use-json-cpp-library-on-ubuntu-linux-os  link to website for how I installed jsoncpp library (JSON parser library used).
+- Successful extraction of text portion from tweets.

@@ -50,6 +50,7 @@ int main()
             outfile << val["statuses"][i]["text"] << std::endl; //Format to access text is map, array, map
         }
         outfile.close();
+        exit(0);
 
 
     }

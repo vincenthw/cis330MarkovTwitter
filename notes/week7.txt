@@ -36,4 +36,11 @@ Cleaned up twitcurl_test code, adding a makefile. This is used to ensure the gro
 2/22
 - Discovered need for another library to help parse JSON data.
 -https://linux.tips/programming/how-to-install-and-use-json-cpp-library-on-ubuntu-linux-os  link to website for how I installed jsoncpp library (JSON parser library used).
-- Successful extraction of text portion from tweets.
+- Successful extraction of text portions from tweets.
+
+2/23
+Groups next steps:
+	- Integrate twitter extraction module with the Markov chain module to begin roughly forming tweets.
+
+Notes:
+	- We have ran into an issue where the Mac users in our group are unable to install the twitcurl library. We are looking for a work around, but we may end up just using Docker to create a virutal environment so that the program can run on everyones computer.

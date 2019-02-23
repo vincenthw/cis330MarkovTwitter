@@ -1,2 +1,2 @@
 all: twitterTest.cpp
-	g++ -o twitterTest twitterTest.cpp -ltwitcurl
+	g++ -std=c++14 -o twitterTest twitterTest.cpp -ltwitcurl -ljsoncpp

@@ -32,3 +32,6 @@ https://github.com/swatkat/twitcurl/blob/master/libtwitcurl/twitcurl.h
 				-gets trends.			
 2/19
 Cleaned up twitcurl_test code, adding a makefile. This is used to ensure the group can all compile and run the code required for the project.
+
+2/22
+https://linux.tips/programming/how-to-install-and-use-json-cpp-library-on-ubuntu-linux-os - link to website for how I installed jsoncpp library. Struggling to use

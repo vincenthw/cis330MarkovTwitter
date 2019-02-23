@@ -1,4 +1,6 @@
 #include "twitterTest.h"
+#include <iostream>
+#include "jsoncpp/json/json.h"
 
 int main()
 {
@@ -31,9 +33,13 @@ int main()
     std::string replyMsg;
     if (twitterObj.accountVerifyCredGet()) // if account credentials are valid
     {
-        twitterObj.search("nba", "50"); // Get 50 nba tweets
+        twitterObj.search("nba", "1"); // Get 50 nba tweets
         twitterObj.getLastWebResponse(replyMsg); //set replyMsg to the twitCurl reponse
         printf("\ntwitterClient:: twitCurl::accountVerifyCredGet web response:\n%s\n", replyMsg.c_str());
+        Json::Reader reader;
+        Json::Value val;
+        reader.parse(replyMsg, val);
+        std::cout << val["statuses"][0]["text"]; //Format to access text is map, array, map
     }
     else
     {

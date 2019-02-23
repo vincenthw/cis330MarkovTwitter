@@ -5,8 +5,9 @@
 #include <unordered_map>
 
 
+using namespace std;
+
 namespace markov {
-	using namespace std;
 	class word {
 	public:
 		word(string);
@@ -14,6 +15,7 @@ namespace markov {
 		void setCount(int);
 		string getKey();
 		void setKey(string);
+		void increment();
 	private:
 		int count;
 		string key;
@@ -23,8 +25,9 @@ namespace markov {
 	public:
 		markovChain();
 		void setChain(fstream &input);
+		void printChain();
 	private:
-		unordered_map<string, word>  chain;
+		unordered_map<string, vector<word>>  chain;
 	};
 }
 

@@ -1,9 +1,9 @@
 CXX = g++
-CFLAGS = -g -std=c++14
+CXXFLAGS = -g -std=c++14
 
 
 %.o: %.cpp
-	$(CXX) -c $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 all: testMarkov.exe
 

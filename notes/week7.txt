@@ -49,3 +49,6 @@ Notes:
 2/24 Week recap: group members worked to get twitcurl library functionality in order to generate a text file of tweets to be used later with a markov chain (Cameron, John, Netwon). 
 		 work was also done on the markov chain program. Design was thought out at group meeting. The implementation was started. (John and Vincent). Overall progress seems to be 
 		 well underway. Next week will likely see a functional markov chain using the txt file of tweets. Then we will need to get the programs to work cohesively and also send tweets. 
+
+2/24
+Created twibot directory for main project development. Has all the files/libraries necessary for anyone to compile and run. Mac users should be able to compile without having to use Docker.

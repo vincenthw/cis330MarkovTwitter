@@ -4,7 +4,7 @@ COPY . /usr/src/twitbot
 WORKDIR /usr/src/twitbot
 
 RUN apt-get update -y
-RUN apt-get install -y make
+RUN apt-get install -y make gcc
 
 
 RUN make

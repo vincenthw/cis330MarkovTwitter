@@ -5,8 +5,8 @@ CFLAGS = -Wall -Lbin
 SRC = $(wildcard *.cpp)
 
 
-all: $(SRC)
-	$(CC) $(SRC) $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
+# all: $(SRC)
+# 	$(CC) $(SRC) $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
 
-main: jsoncpp.cpp tweetSearch.cpp twitbotDriver.cpp
-	$(CC) jsoncpp.cpp tweetSearch.cpp twitbotDriver.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
+main: twitcurlWrapper.cpp twitbotDriver.cpp
+	$(CC) twitcurlWrapper.cpp twitbotDriver.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe

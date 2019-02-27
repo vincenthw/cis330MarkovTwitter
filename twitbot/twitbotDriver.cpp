@@ -1,14 +1,16 @@
-#include "tweetSearch.h"
+#include "twitcurlWrapper.h"
 
 int main()
 {
-    TweetSearch twitObj;
+    TwitcurlWrapper twitWrapper;
     
-    // std::string searchTweets = twitObj.searchTwitter("Trump", 10);
+    // uses twitter "search" functionality
+    std::string searchTweets = twitWrapper.searchTwitter("NBAonTNT", 10);
     // std::cout << searchTweets << std::endl;
 
-    std::string userTweets = twitObj.getTweetsByUser("realDonaldTrump", true, 15);
-    std::cout << userTweets << std::endl;
+    // grabs latest tweets by @realDonaldTrump
+    std::string userTweets = twitWrapper.getTweetsByUser("realDonaldTrump", 201, true);
+    // std::cout << userTweets << std::endl;
 
     exit(0);
 }

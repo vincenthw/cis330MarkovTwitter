@@ -8,8 +8,3 @@ Dependencies:
 Twitter account:
     330twitbot
     camnewt
-
-Not working:
-    hashtag search (possible fix in twitcurl pull request https://github.com/swatkat/twitcurl/pull/70)
-    search without truncating tweets
-    search in general provides poor results due to combination of above

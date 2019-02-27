@@ -1,0 +1,15 @@
+2/26 - john
+Created class twitcurlWrapper to use twitcurl functions and prepare the results so that they can be used by the markov chain generator.
+Current functionality of twitcurlWrapper is:
+    - search twitter, needs work
+    - get tweets by user, basically complete
+    - parses results of api calls, returns a string containing all of the tweets combined in to one
+    
+Not working:
+    hashtag search (possible fix in twitcurl pull request https://github.com/swatkat/twitcurl/pull/70)
+    search without truncating tweets
+    search in general provides poor results due to combination of above
+
+Once the markov chain generator is complete, we can use a twitcurlWrapper object to easily get strings that can be passed into the generator.
+
+Also continued to try to get the code to compile on Mac / other OSs without success

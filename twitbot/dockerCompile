@@ -1,1 +1,2 @@
-sudo docker run --rm -v "$PWD":/usr/src/twitbot -w /usr/src/twitbot gcc:latest make
+docker build --tag=twitbot .
+docker run -it twitbot

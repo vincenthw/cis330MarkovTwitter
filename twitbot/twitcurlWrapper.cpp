@@ -42,7 +42,7 @@ std::string TwitcurlWrapper::removeTwitterLinks(std::string input)
 
         // all twitter links have length 23
         input.replace(found, 23, " "); 
-        found = input.find(s);
+        found = input.find(searchString);
     }
 
     return input;

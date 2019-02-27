@@ -6,6 +6,7 @@ Current functionality of twitcurlWrapper is:
     - parses results of api calls, returns a string containing all of the tweets combined in to one
     
 Not working:
+    getTweetByUser() is inconsistent with some usernames, need to check json for errors before parsing
     hashtag search (possible fix in twitcurl pull request https://github.com/swatkat/twitcurl/pull/70)
     search without truncating tweets
     search in general provides poor results due to combination of above
@@ -13,3 +14,10 @@ Not working:
 Once the markov chain generator is complete, we can use a twitcurlWrapper object to easily get strings that can be passed into the generator.
 
 Also continued to try to get the code to compile on Mac / other OSs without success
+
+2/27 - john
+I think I got a docker container working so that anyone can compile and run the code in it. 
+Commands to use it:
+
+./dockerCompile
+./bot.exe

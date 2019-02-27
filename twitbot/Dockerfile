@@ -8,4 +8,5 @@ WORKDIR /usr/src/twitbot
 RUN cp /usr/src/twitbot/bin/libtwitcurl.so /usr/lib/libtwitcurl.so
 RUN make
 
-CMD ["/bin/bash"]
+# CMD ["/bin/bash"]
+CMD ["./bot.exe"]

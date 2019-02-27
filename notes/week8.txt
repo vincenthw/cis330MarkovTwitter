@@ -20,4 +20,3 @@ I think I got a docker container working so that anyone can compile and run the 
 Commands to use it:
 
 ./dockerCompile
-./bot.exe

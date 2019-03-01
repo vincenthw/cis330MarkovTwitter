@@ -1,2 +1,2 @@
-docker build --tag=twitbot .
-docker run -it twitbot
+sudo docker build --tag=twitbot .
+sudo docker run -it twitbot

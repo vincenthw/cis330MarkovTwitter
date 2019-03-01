@@ -1,4 +1,4 @@
-CC = g++
+CC = g++ -std=c++14
 INCLUDE = -Iinclude
 LIBS = -lcurl -ltwitcurl
 CFLAGS = -Wall -Lbin

@@ -80,12 +80,12 @@ std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets)
         if (parsedReply[i]["retweeted_status"] != nullptr)
         {
             combinedTweets.append(parsedReply[i]["retweeted_status"]["text"]);
-            combinedTweets.append(" ");
+            combinedTweets.append("\n");
         }
         else
         {
             combinedTweets.append(parsedReply[i]["text"]);
-            combinedTweets.append(" ");
+            combinedTweets.append("\n");
         }
     }
 

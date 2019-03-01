@@ -2,9 +2,15 @@
 #include <iostream>
 #include "jsoncpp/json/json.h"
 #include <fstream>
+#include <string>
 
 int main()
 {
+    //User input for a category they wish the acct to from a tweet on
+    std::string search;
+    std::cout << "Please insert a category of interest: ";
+    std::cin >> search;
+
     twitCurl twitterObj;
     std::string consumerKey("pIPeKJqCtW2bXkc5DnbFq039Z");
     std::string consumerSecret("DBahC1k4gkuGEAWlcrsglqUyce2piIPU1XRDdwSlQYTQc5gzMv");
@@ -34,7 +40,7 @@ int main()
     std::string replyMsg;
     if (twitterObj.accountVerifyCredGet()) // if account credentials are valid
     {
-        twitterObj.search("nba", "10"); // Get 50 nba tweets
+        twitterObj.search(search, "20"); // Get 50 nba tweets
         twitterObj.getLastWebResponse(replyMsg); //set replyMsg to the twitCurl reponse
         printf("\ntwitterClient:: twitCurl::accountVerifyCredGet web response:\n%s\n", replyMsg.c_str());
 

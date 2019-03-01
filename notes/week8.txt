@@ -30,5 +30,7 @@ completed  - markovChain(fstream &input)
            - a host of other small things that allow these to work (some operator overloading)
 	     string parsing, etc.
 
-
+2/28 - john
+Added function to twitcurlWrapper that will check if a given username is valid.
+Added function to twitbotDriver to get usernames from user input, and combine those users' tweets into one string to be used in markov chain.
 

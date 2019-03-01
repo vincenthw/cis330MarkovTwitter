@@ -2,6 +2,9 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <iterator>
+#include <algorithm>
+
 
 using namespace markov;
 

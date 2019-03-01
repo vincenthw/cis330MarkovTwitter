@@ -5,12 +5,17 @@
 
 using namespace markov;
 
+
+
+
 bool word::operator ==(const word& w){
 			
 			if(this->key == w.key)
 				return true;
 			return false;
-		}
+}
+
+
 
 word::word(string key) { 
 	this->key = key;
@@ -42,10 +47,10 @@ markovChain::markovChain(fstream &input) {
 	
 	string first = "";
 	string second = "";
-	
+	input >> first;
+	input >> second;
+
 	while(!input.eof()){
-		input >> first;
-		input >> second;
 
 		/*if there is no key first, create a pair using the first
 		  word as they key and the second word to instantiate a word
@@ -61,11 +66,15 @@ markovChain::markovChain(fstream &input) {
 		else if(this->chain.count(first) > 0) {
 			/*if the second word is already added to the vector, 
 			  increment its count */
-			vector<word> temp = this->chain.at(first); 
 			word w(second);
-			auto itr = find(temp.begin(), temp.end(), w);
-			if(itr == temp.end()) {
-				int v = 0;
+
+			auto itr = find(this->chain.at(first).begin(), 
+							this->chain.at(first).end(), w);
+
+			if(itr == this->chain.at(first).end()) {
+				this->chain.at(first).push_back(w);
+			} else {
+				itr->increment();
 			}
 			
 
@@ -76,8 +85,10 @@ markovChain::markovChain(fstream &input) {
 		}
 
 
-		
+		first = second;
+		input >> second;
 	}
+	input.close();
 }
 
 markovChain::markovChain(string input) {
@@ -87,6 +98,21 @@ markovChain::markovChain(string input) {
 
 void markovChain::printChain() {
 	for(auto itr = this->chain.begin(); itr != this->chain.end(); itr++) {
-	} 
-	cout << endl;
+		cout << (*itr).first << " : " << "{ ";
+		for(auto it = (*itr).second.begin(); it != (*itr).second.end(); it++) {
+			cout  << (*it).getKey() << " (" << (*it).getCount() << ") ";
+		}
+		cout << " }" << endl;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

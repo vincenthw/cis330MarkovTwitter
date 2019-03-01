@@ -5,8 +5,7 @@ using namespace markov;
 
 int main() {
 	fstream input;
-	markovChain mark;
-	mark.setChain(input);
-
+	markovChain mark(input);
+	mark.printChain();
 	
 }

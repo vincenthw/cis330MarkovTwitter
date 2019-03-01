@@ -4,10 +4,13 @@
 #include <string>
 #include <unordered_map>
 #include<vector>
+#include<iostream>
 
 using namespace std;
 
 namespace markov {
+
+	
 	/*data class that the unordered map will contain to indicate
 	 count for the number of occurences */
 	class word {
@@ -34,6 +37,7 @@ namespace markov {
 	private:
 		unordered_map<string, vector<word>>  chain;
 	};
+
 }
 
 

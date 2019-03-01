@@ -20,3 +20,15 @@ I think I got a docker container working so that anyone can compile and run the 
 Commands to use it:
 
 ./dockerCompile
+
+
+2/28 - Vince
+Did a lot of work to get two markov chain constructors to work. Group met and discussed next steps as well as group member roles. Cam and I are going to be working on Markov Chain, John and Newton on twitter api etc., due to the fact that the twitcurl api is not wanting to cooperate on our macs. So far it seems we have made good progress. Meeting again on the weekend, hopefully will be making tweets soon!
+
+completed  - markovChain(fstream &input)
+	   - markovChain(string input)
+           - a host of other small things that allow these to work (some operator overloading)
+	     string parsing, etc.
+
+
+

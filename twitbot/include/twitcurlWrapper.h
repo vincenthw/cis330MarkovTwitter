@@ -10,7 +10,10 @@ public:
     std::string searchTwitter(std::string query, int numTweets);
 
     // Get recent tweets by specific twitter user
-    std::string getTweetsByUser(std::string username, int numTweets, bool includeRetweets); 
+    std::string getTweetsByUser(std::string username, int numTweets, bool includeRetweets);
+
+    // Returns true if username is valid, false otherwise
+    bool isValidUsername(std::string username);
 
 private:
 

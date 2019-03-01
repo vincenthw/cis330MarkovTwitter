@@ -117,7 +117,7 @@ std::string TwitcurlWrapper::getTweetsByUser(std::string username, int numTweets
     if (numTweets > 200) numTweets = 200;
 
     timelineUserGet(false, includeRetweets, numTweets, username, false, true);
-
+    
     std::string reply;
 
     // store the response in reply string
@@ -146,4 +146,27 @@ std::string TwitcurlWrapper::getTweetsByUser(std::string username, int numTweets
 
     return combinedTweets;
     // return reply;
+}
+
+
+/*
+* TwitcurlWrapper::isValidUsername
+* Check if username is a valid twitter account
+*
+* parameters:   username - twitter username of account to get tweets from
+*
+* output:       true if valid, false otherwise
+*/
+bool TwitcurlWrapper::isValidUsername(std::string username)
+{
+    userGet(username);
+    std::string reply;
+    getLastWebResponse(reply);
+
+    // parse reply json
+    nlohmann::json parsedReply = nlohmann::json::parse(reply);
+
+    // parsedReply will have an errors field if the username is invalid
+    if (parsedReply["errors"] != nullptr) {return false;}
+    return true;
 }

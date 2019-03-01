@@ -1,12 +1,16 @@
-CC = g++ -std=c++14
+CC = g++
 INCLUDE = -Iinclude
-LIBS = -lcurl -ltwitcurl
-CFLAGS = -Wall -Lbin
+LIBS = -Lbin -lcurl -ltwitcurl
+CFLAGS = -Wall -g -std=c++14
 SRC = $(wildcard *.cpp)
 
 
 # all: $(SRC)
 # 	$(CC) $(SRC) $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
 
-main: twitcurlWrapper.cpp twitbotDriver.cpp
-	$(CC) twitcurlWrapper.cpp twitbotDriver.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
+main: twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp
+	$(CC) twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
+
+
+testMarkov.exe: testMarkov.cpp markov.cpp
+	$(CC) markov.cpp testMarkov.cpp $(CFLAGS) $(INCLUDE) -o testMarkov.exe

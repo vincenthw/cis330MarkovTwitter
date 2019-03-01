@@ -1,4 +1,5 @@
 #include "twitcurlWrapper.h"
+#include "markov.hpp"
 #include <string>
 #include <iostream>
 
@@ -40,6 +41,8 @@ OUTER:
 			}
 		}
 	}
+
+	return combinedTweets;
 }
 
 // Function to prompt users for search queries that will be used in markov chain
@@ -75,7 +78,16 @@ std::string getInputSearch(TwitcurlWrapper twitWrapper)
 int main()
 {
 
+
 	TwitcurlWrapper twitWrapper;
+
+	/* It works!!!!! 
+		Asks users for twitter usernames, 
+		generates markov chain frequencies, 
+		prints frequencies. 
+	 */
+	markov::markovChain chain(getInputUsernames(twitWrapper));
+	chain.printChain();
 
 	/* 
 	Code here to ask what user wants to do:

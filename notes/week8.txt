@@ -34,3 +34,6 @@ completed  - markovChain(fstream &input)
 Added function to twitcurlWrapper that will check if a given username is valid.
 Added function to twitbotDriver to get usernames from user input, and combine those users' tweets into one string to be used in markov chain.
 
+3/1
+As Vince completed the initial chain generation of the markov chain, we moved his files into the main twitbot directory so we can begin integrating it into the main program.
+Next main step is generating sentences from the word frequency chain.

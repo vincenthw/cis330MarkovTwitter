@@ -4,22 +4,27 @@
 #include <string>
 #include <unordered_map>
 #include<vector>
-#include<iostream>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 using namespace std;
 
 namespace markov {
 
 	
-	/*data class that the unordered map will contain to indicate
+	/* data class that the unordered map will contain to indicate
 	 count for the number of occurences */
 	class word {
 	public:
 		word(string);
+
 		int getCount();
-		void setCount(int);
 		string getKey();
+
+		void setCount(int);
 		void setKey(string);
+
 		void increment();
 		bool operator == (const word& w); 
 	private:

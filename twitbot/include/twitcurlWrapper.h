@@ -15,5 +15,5 @@ public:
 private:
 
     // remove twitter links from string
-    std::string removeTwitterLinks(std::string input);
+    std::string cleanText(std::string input);
 };

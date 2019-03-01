@@ -21,14 +21,14 @@ TwitcurlWrapper::TwitcurlWrapper() : twitCurl()
 
 
 /*
-* TwitcurlWrapper::removeTwitterLinks
+* TwitcurlWrapper::cleanText
 * removes links of format "https://t.co/xxxxxxxxxx" from input string, replacing them with a space (" ")
 *
 * parameters:   input - string to remove links from
 *
 * output:       string with links removed
 */
-std::string TwitcurlWrapper::removeTwitterLinks(std::string input)
+std::string TwitcurlWrapper::cleanText(std::string input)
 {
     // all twitter links start with this string
     std::string searchString = "https://t.co/";
@@ -42,6 +42,16 @@ std::string TwitcurlWrapper::removeTwitterLinks(std::string input)
 
         // all twitter links have length 23
         input.replace(found, 23, " "); 
+        found = input.find(searchString);
+    }
+
+    // Do the same thing, but  replace "&amp;" with "&"
+    searchString = "&amp;";
+    found = input.find(searchString);
+
+    while (found != std::string::npos)
+    {
+        input.replace(found, 5, "&");
         found = input.find(searchString);
     }
 
@@ -132,7 +142,8 @@ std::string TwitcurlWrapper::getTweetsByUser(std::string username, int numTweets
         }
     }
 
-    combinedTweets = removeTwitterLinks(combinedTweets);
+    combinedTweets = cleanText(combinedTweets);
 
     return combinedTweets;
+    // return reply;
 }

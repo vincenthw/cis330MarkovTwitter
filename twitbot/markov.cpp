@@ -159,13 +159,35 @@ void markovChain::printChain() {
 	}
 }
 
+void markovChain::genSentence()
+{
+	string chain = "";
 
+	auto item = this->chain.begin();
+	int randomIndex = rand() % this->chain.size();
+	advance(item, randomIndex);
+	chain.append((*item).first);
 
+	for (int i = 0; i < 40; i++)
+	{
+		int sum = 0;
+		for (auto itr = (*item).second.begin(); itr != (*item).second.end(); itr++)
+		{
+			sum += (*itr).getCount();
+		}
+		int choice = rand() % sum;
+		for (int j=0; j<(*item).second.size(); j++)
+		{
+			if (choice < (*item).second[j].getCount()) 
+			{
+				chain.append(" ");
+				chain.append((*item).second[j].getKey());
+				item = this->chain.find((*item).second[j].getKey()); 
+				break;
+			}
+			choice -= (*item).second[j].getCount();
+		}
+	}
 
-
-
-
-
-
-
-
+	cout << chain << endl;
+}

@@ -10,40 +10,10 @@ using namespace markov;
 
 
 
-//Overloaded equality operator for words
-bool word::operator ==(const word& w){
-			
-			if(this->key == w.key)
-				return true;
-			return false;
-}
 
 
-//Word constructor with string as parameter
-word::word(string key) { 
-	this->key = key;
-	this->count = 1;
-}
-
-//Word getters
-int word::getCount() {
-	return this->count;
-}
-string word::getKey() {
-	return this->key;
-}
-
-//Word setters
-void word::setCount(int c) {
-	this->count = c;
-}
-void word::setKey(string k) {
-	this->key = k;
-}
-
-//Word increment
-void word::increment() {
-	this->count++;
+vector<word> markovChain::getChain(string key) {
+	return this->chain[key];
 }
 
 
@@ -96,6 +66,12 @@ markovChain::markovChain(fstream &input) {
 		input >> second;
 	}
 	input.close();
+
+	// for(auto itr = this->chain.begin(); itr != this->chain.end(); itr++) {
+	// 	for(auto it = this->chain.at((*itr).first).begin(); it != this->chain.at((*itr).first).end(); it++ ) {
+	// 		(*it).setProbability(this->chain);
+	// 	}
+	// }
 }
 
 /* Constructor that makes the chain using a string as the 

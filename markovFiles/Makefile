@@ -7,7 +7,7 @@ CXXFLAGS = -g -std=c++14
 
 all: testMarkov.exe
 
-testMarkov.exe: testMarkov.o markov.o
+testMarkov.exe: testMarkov.o markov.o word.o
 	$(CXX) -o $@ $^
 
 clean: 

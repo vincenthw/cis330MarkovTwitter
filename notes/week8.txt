@@ -42,3 +42,10 @@ Next main step is generating sentences from the word frequency chain.
 -Added small base function to post the tweets, once we begin to integrate will be able to change it to tweet the variable tweets generated from the markov chain.
 -Also added base code to allow user to select which type of tweet generation they are wanting to use, i.e. generating tweets based on specific user(s) tweets or based on specific topics.
 -Looked at possible fuctionality expansions some new ideas: having the app tell you the top trending tag on twitter either daily, weekly, etc.
+
+
+
+3/3 
+-Met to discuss next steps and check progress. Currently we have all of the pieces and need to connect/refine/debug. We also decided we will be making a simple webpage to allow an easy UI to access the bot. 
+This week a lot of progress was made. We now can create and use (sort of) the markov chain, using input from the twitter API. We can also post tweets to the @330twitbot twitter account.
+

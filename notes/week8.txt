@@ -37,3 +37,8 @@ Added function to twitbotDriver to get usernames from user input, and combine th
 3/1
 As Vince completed the initial chain generation of the markov chain, we moved his files into the main twitbot directory so we can begin integrating it into the main program.
 Next main step is generating sentences from the word frequency chain.
+
+3/2
+-Added small base function to post the tweets, once we begin to integrate will be able to change it to tweet the variable tweets generated from the markov chain.
+-Also added base code to allow user to select which type of tweet generation they are wanting to use, i.e. generating tweets based on specific user(s) tweets or based on specific topics.
+-Looked at possible fuctionality expansions some new ideas: having the app tell you the top trending tag on twitter either daily, weekly, etc.

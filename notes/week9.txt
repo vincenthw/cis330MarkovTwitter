@@ -1,0 +1,8 @@
+3/7
+Held meeting to discuss and research integrating some python code that could call the c++ code we have written. This way we could integrate the webpage and allow it to generate markov sentences and display them to the user.
+
+3/7 - john
+started git branch for fleshing out the command line interface as a backup way for users to interact with the application. Created a separate cpp file to keep main() clean.
+
+3/8 - john
+continued working on cli branch.

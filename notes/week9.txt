@@ -2,7 +2,13 @@
 Held meeting to discuss and research integrating some python code that could call the c++ code we have written. This way we could integrate the webpage and allow it to generate markov sentences and display them to the user.
 
 3/7 - john
-started git branch for fleshing out the command line interface as a backup way for users to interact with the application. Created a separate cpp file to keep main() clean.
+started git branch for fleshing out the command line interface as a backup way for users to interact with the application. Created a separate cpp file to keep main() clean
+
+3/7 - Newton/Cam (forgot to update notes day of)
+Created Html page for display the twitter feed and taking in user input to generate tweets. Also began to research how to direct this data to our C++ code so that the tweets can be generated from this data, Node.js looked promising but after a bit of research determined it appeard to complex and would require too much of a re-work of the current code to attempt. Began to look into creating a wrapper so that data could be sent from python to the C++ function, this looks more achieveable.
 
 3/8 - john
 continued working on cli branch.
+
+3/8 - Newton/Cam
+Continued researching creating wrapper for python and began to develop a test implementation. Currently running into errors with the importing of the wrapper, attempting to debug.

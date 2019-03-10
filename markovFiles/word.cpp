@@ -45,16 +45,18 @@ void word::setKey(string k) {
 	this->key = k;
 }
 
-void word::setProbability(unordered_map<string, vector<word>>& m) {
-	if(this->key != "") {
-		vector<word> words = m.at(this->key);
-		int sum = 0;
-		for(auto itr = words.begin(); itr != words.end(); itr++) {
-			sum += (*itr).getCount();
-		}
-		auto positioj = find(words.begin(), words.end(), key);
-		this->probability = static_cast<float>(this->count/sum);
-	}
+void word::setProbability(float &p) {
+	this->probability = p;
+	// cout << "set probability" << endl;
+	// if(this->key != "") {
+	// 	vector<word> words = m.at(this->key);
+	// 	int sum = 0;
+	// 	for(auto itr = words.begin(); itr != words.end(); itr++) {
+	// 		sum += (*itr).getCount();
+	// 	}
+	// 	auto position = find(words.begin(), words.end(), key);
+	// 	this->probability = static_cast<float>(this->count/sum);
+	// }
 }
 
 //Word increment

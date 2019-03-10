@@ -14,6 +14,7 @@ namespace markov {
 class markovChain;
 
 class word {
+	friend class markovChain;
 	public:
 		word();
 		word(string);
@@ -24,7 +25,7 @@ class word {
 
 		void setCount(int);
 		void setKey(string);
-		void setProbability(unordered_map<string, vector<word>>&);
+		void setProbability(float&);
 
 		void increment();
 		bool operator == (const word& w); 

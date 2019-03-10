@@ -129,10 +129,29 @@ void markovChain::printChain() {
 	for(auto itr = this->chain.begin(); itr != this->chain.end(); itr++) {
 		cout << (*itr).first << " : " << "{ ";
 		for(auto it = (*itr).second.begin(); it != (*itr).second.end(); it++) {
-			cout  << (*it).getKey() << " (" << (*it).getCount() << ") ";
+			cout  << (*it).getKey() << " (" << (*it).getProbability() << ") ";
 		}
 		cout << " }" << endl;
 	}
+}
+
+void markovChain::setProbabilities() {
+	float sum = 0;
+	float prob = 0;
+ 	for(auto iter = this->chain.begin(); iter != this->chain.end(); iter++) {
+		for(auto itr = (*iter).second.begin(); itr != (*iter).second.end(); itr ++) {
+			sum += (*itr).getCount();
+		}
+		for(auto itr = (*iter).second.begin(); itr != (*iter).second.end(); itr ++) {
+			cout << "sum = " << sum << endl;
+			cout << "count = " << (*itr).getCount() << endl;
+ 			prob = (*itr).getCount()/sum;
+			cout << "prob = " << prob << endl;
+			(*itr).setProbability(prob);
+			cout << "Probability" << (*itr).getProbability() << endl;
+		}
+	}
+
 }
 
 

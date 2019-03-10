@@ -11,8 +11,10 @@ int main() {
 
 	markovChain mark2(input);
 	cout << "Mark" << endl;
+	// mark.printChain();
+	// cout << "Mark2" << endl;
+	// mark2.printChain();
+	mark.setProbabilities();
 	mark.printChain();
-	cout << "Mark2" << endl;
-	mark2.printChain();
 }
 	

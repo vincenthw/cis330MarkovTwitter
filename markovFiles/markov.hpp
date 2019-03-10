@@ -13,11 +13,12 @@
 using namespace std;
 
 namespace markov {
-	
+
 	class word;
 	
 	/* Class that will contain the actual markov chain*/
 	class markovChain {
+
 		friend class word;
 	public:
 		markovChain();
@@ -25,8 +26,10 @@ namespace markov {
 		markovChain(string);
 		void printChain();
 		vector<word> getChain(string key);
-	private:
+		void setProbabilities();
 		unordered_map<string, vector<word>>  chain;
+	private:
+		// unordered_map<string, vector<word>>  chain;
 	};
 
 }

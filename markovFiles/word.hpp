@@ -29,6 +29,8 @@ class word {
 
 		void increment();
 		bool operator == (const word& w); 
+		string highProb();
+	
 	private:
 		int count;
 		string key;

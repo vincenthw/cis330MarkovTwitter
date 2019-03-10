@@ -27,9 +27,11 @@ namespace markov {
 		void printChain();
 		vector<word> getChain(string key);
 		void setProbabilities();
-		unordered_map<string, vector<word>>  chain;
+		void sentenceGen();
+		string highProb(vector<word>&);
+
 	private:
-		// unordered_map<string, vector<word>>  chain;
+		unordered_map<string, vector<word>>  chain;
 	};
 
 }

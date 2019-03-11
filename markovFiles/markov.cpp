@@ -137,10 +137,13 @@ void markovChain::printChain() {
 		cout << " }" << endl;
 	}
 }
-
+/* Function that sets the weights for each word in the markov chain */
 void markovChain::setProbabilities() {
-	float sum = 0;
-	float prob = 0;
+	float sum = 0; //number of words that occur
+	float prob = 0; //probability 
+
+ 	/* Loops through the chain, setting the probabilities of each 
+ 	   word in each vector corresponding to a key */
  	for(auto iter = this->chain.begin(); iter != this->chain.end(); iter++) {
 		for(auto itr = (*iter).second.begin(); itr != (*iter).second.end(); itr ++) {
 			sum += (*itr).getCount();
@@ -155,6 +158,10 @@ void markovChain::setProbabilities() {
 	}
 
 }
+
+/* Function that returns one of the top three highest probability 
+   words in a vector of words (which is assocaited with a key in 
+   the markov chain) */
 string markovChain::highProb(vector<word>& w) {
 	int random = rand() % 3 + 1;
 	word highest;
@@ -167,6 +174,10 @@ string markovChain::highProb(vector<word>& w) {
 	return highest.getKey();
 }
 
+
+/* Function that returns a vector of strings that are "start words"
+   in the input file, these are used to determine a word to start with 
+   for sentence generation */
 vector<string> markovChain::startWords() {
 	fstream input;
 	input.open("twitter.txt");
@@ -175,6 +186,7 @@ vector<string> markovChain::startWords() {
 	input >> first;
 	input >> second;
 	vector<string> startWords; 
+	
 	while(!input.eof()) {
 		char end = first.back();
 		if(end == '.') {
@@ -183,10 +195,14 @@ vector<string> markovChain::startWords() {
 		input >> first;
 		input >> second;
 	}
+	
 	input.close();
 	return startWords;
 }
 
+/* Function that checks & changes punctuation of the generated sentence.
+   Removes certain punctation marks, changes case accordingly, adds a
+   period at the end */
 void markovChain::punc(string& s) {
 	s.erase(remove(s.begin(), s.end(), '.'), s.end());
 	s.erase(remove(s.begin(), s.end(), '"'), s.end());
@@ -199,6 +215,8 @@ void markovChain::punc(string& s) {
 	}
 }
 
+/* Generates a sentence using weights of the markov chain and 
+   returns the sentence as a string */
 string markovChain::sentenceGen() {
 	string sentence = "";
 	string newWord = "";
@@ -216,7 +234,6 @@ string markovChain::sentenceGen() {
 	}
 	punc(sentence);
 	return sentence;
-
 
 }
 

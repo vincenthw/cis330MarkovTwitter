@@ -164,31 +164,57 @@ string markovChain::highProb(vector<word>& w) {
 	} else {
 		highest = w.at(0);
 	}
-
-	// for(auto itr = w.begin(); itr != w.end(); itr++) {
-	// 	if((*itr).getProbability() > highest.getProbability()) {
-	// 		highest = (*itr);
-	// 	}
-	// }
-
-
 	return highest.getKey();
 }
 
+vector<string> markovChain::startWords() {
+	fstream input;
+	input.open("twitter.txt");
+	string first = "";
+	string second = "";
+	input >> first;
+	input >> second;
+	vector<string> startWords; 
+	while(!input.eof()) {
+		char end = first.back();
+		if(end == '.') {
+			startWords.push_back(second);
+		}
+		input >> first;
+		input >> second;
+	}
+	input.close();
+	return startWords;
+}
+
+void markovChain::punc(string& s) {
+	s.erase(remove(s.begin(), s.end(), '.'), s.end());
+	s.erase(remove(s.begin(), s.end(), '"'), s.end());
+	s[0] = toupper(s[0]);
+	s.append(".");
+	for(int i = 1; i < s.length(); i++) {
+		if(isupper(s[i])) {
+			s[i] = tolower(s[i]);
+		} 	
+	}
+}
 
 string markovChain::sentenceGen() {
 	string sentence = "";
 	string newWord = "";
 	srand(time(NULL));
-	auto random_itr = next(begin(this->chain), rand() % this->chain.size());
-	sentence.append((*random_itr).first);
-	vector<word> words = (*random_itr).second;
-	for(int i = 0; i < 20; i++) {
+	vector<string> start = startWords();
+	int index = rand() % start.size();
+
+	sentence.append(start.at(index));
+	vector<word> words = this->chain[start.at(index)];
+	for(int i = 0; i < 40; i++) {
 		sentence.append(" ");
 		newWord = highProb(words);
 		sentence.append(newWord);
 		words = this->chain[newWord];
 	}
+	punc(sentence);
 	return sentence;
 
 

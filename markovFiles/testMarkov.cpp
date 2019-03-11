@@ -7,8 +7,11 @@ using namespace markov;
 int main() {
 	fstream input;
 	markovChain mark(input);
+
 	mark.setProbabilities();
+
 	string twit = mark.sentenceGen();
+
 	cout << twit << endl;
 }	
 	

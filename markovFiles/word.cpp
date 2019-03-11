@@ -15,8 +15,7 @@ bool word::operator ==(const word& w){
 			return false;
 }
 
-
-
+//default constructor 
 word::word() {
 	this->key = "";
 	this->count = 0;
@@ -56,6 +55,7 @@ void word::increment() {
 	this->count++;
 }
 
+//used to allow sorting of word vectors 
 bool word::compare(const word& l, const word& r) {
 	return l.getProbability() < r.getProbability();
 }

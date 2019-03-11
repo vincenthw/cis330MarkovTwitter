@@ -15,3 +15,8 @@ Continued researching creating wrapper for python and began to develop a test im
 
 3/9
 after much time attempting wrappers for python and c++ communication, we implemented a method that allowed python to simply write to a text file the unser inputs from the html which  then using os python commands can run a c++ file within the same python function. Dockerfile has been changed to handle these changes and is now awaiting intagration with master c++ file for a fully working user friendly interface. 
+
+3/10 -Vince
+Spent several hours adding class functions and now the program generates real sentences! (With almost no grammar). Next step is to link all parts together/merge back to master. Additionally, I will try to add in grammar rules, possibly using text files of nouns, verbs, etc. to create more realisitic sentence syntax. 
+
+

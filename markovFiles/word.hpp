@@ -21,16 +21,16 @@ class word {
 
 		int getCount();
 		string getKey();
-		float getProbability();
+		float getProbability() const;
 
 		void setCount(int);
 		void setKey(string);
 		void setProbability(float&);
 
 		void increment();
-		bool operator == (const word& w); 
-		string highProb();
-	
+		bool operator == (const word& w);
+		static bool compare(const word& l, const word& r);
+
 	private:
 		int count;
 		string key;

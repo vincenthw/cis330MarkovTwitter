@@ -15,6 +15,8 @@ bool word::operator ==(const word& w){
 			return false;
 }
 
+
+
 word::word() {
 	this->key = "";
 	this->count = 0;
@@ -33,7 +35,7 @@ int word::getCount() {
 string word::getKey() {
 	return this->key;
 }
-float word::getProbability() {
+float word::getProbability()  const {
 	return this->probability;
 }
 
@@ -47,19 +49,15 @@ void word::setKey(string k) {
 
 void word::setProbability(float &p) {
 	this->probability = p;
-	// cout << "set probability" << endl;
-	// if(this->key != "") {
-	// 	vector<word> words = m.at(this->key);
-	// 	int sum = 0;
-	// 	for(auto itr = words.begin(); itr != words.end(); itr++) {
-	// 		sum += (*itr).getCount();
-	// 	}
-	// 	auto position = find(words.begin(), words.end(), key);
-	// 	this->probability = static_cast<float>(this->count/sum);
-	// }
 }
 
 //Word increment
 void word::increment() {
 	this->count++;
 }
+
+bool word::compare(const word& l, const word& r) {
+	return l.getProbability() < r.getProbability();
+}
+
+

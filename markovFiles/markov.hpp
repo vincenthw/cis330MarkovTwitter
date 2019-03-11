@@ -27,7 +27,7 @@ namespace markov {
 		void printChain();
 		vector<word> getChain(string key);
 		void setProbabilities();
-		void sentenceGen();
+		string sentenceGen();
 		string highProb(vector<word>&);
 
 	private:

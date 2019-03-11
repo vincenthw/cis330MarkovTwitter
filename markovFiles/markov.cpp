@@ -150,36 +150,46 @@ void markovChain::setProbabilities() {
 	 			prob = (*itr).getCount()/sum;
 				(*itr).setProbability(prob);	
  			}
-			cout << endl;
 		}
 		sum = 0;
 	}
 
 }
 string markovChain::highProb(vector<word>& w) {
-	word highest = w.at(0);
-	for(auto itr = w.begin(); itr != w.end(); itr++) {
-		if((*itr).getProbability() > highest.getProbability()) {
-			highest = (*itr);
-		}
+	int random = rand() % 3 + 1;
+	word highest;
+	sort(w.begin(), w.end(), word::compare);
+	if(w.size() > random) {
+		highest = w.at(random);
+	} else {
+		highest = w.at(0);
 	}
+
+	// for(auto itr = w.begin(); itr != w.end(); itr++) {
+	// 	if((*itr).getProbability() > highest.getProbability()) {
+	// 		highest = (*itr);
+	// 	}
+	// }
+
+
 	return highest.getKey();
 }
 
-void markovChain::sentenceGen() {
+
+string markovChain::sentenceGen() {
 	string sentence = "";
 	string newWord = "";
 	srand(time(NULL));
 	auto random_itr = next(begin(this->chain), rand() % this->chain.size());
 	sentence.append((*random_itr).first);
 	vector<word> words = (*random_itr).second;
-	for(int i = 0; i < 10; i++) {
+	for(int i = 0; i < 20; i++) {
 		sentence.append(" ");
 		newWord = highProb(words);
 		sentence.append(newWord);
 		words = this->chain[newWord];
 	}
-	cout << sentence << endl;
+	return sentence;
 
 
 }

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+   <title>Twitter bot</title>
+   <meta charset="utf-8">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/twit_style.css') }} ">
+  </head>
+ 
+  <body>
+	<h1> Twitter bot! </h1>
+	<h2> the pinnacle of AI</h2>
+	<h3> by Cameron Mckeown, Newton Blair, Vince Huynh, John Gautheir </h3>
+
+	Select search method:	
+
+	<form action="/submit" method="POST">
+
+   <select id="category" name="category">
+	<option value="handle">twitter handle</option>
+	<option value="keyword">keyword</option>
+   </select>
+
+  <p></p>
+
+     Input user/category to generate tweet from:
+    <input type="text" name="text">
+    <button id="displayText">construct tweet!</button>
+
+	</form>
+
+	<p></p>
+	<a class="twitter-timeline" href="https://twitter.com/330Twitbot?ref_src=twsrc%5Etfw"
+	data-width="350"
+	data-height="400"
+	data-chrome="nofooter"
+	>
+	Tweets by 330Twitbot
+</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+   </body>
+
+</html>                             

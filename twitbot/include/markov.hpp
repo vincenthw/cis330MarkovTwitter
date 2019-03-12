@@ -39,6 +39,7 @@ namespace markov {
 		markovChain(fstream &);
 		markovChain(string);
 		void printChain();
+		void genSentence();
 	private:
 		unordered_map<string, vector<word>>  chain;
 	};

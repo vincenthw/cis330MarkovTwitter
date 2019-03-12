@@ -8,37 +8,30 @@
 #include <iostream>
 #include <sstream>
 
+#include "word.hpp"
+
 using namespace std;
 
 namespace markov {
 
-	
-	/* data class that the unordered map will contain to indicate
-	 count for the number of occurences */
-	class word {
-	public:
-		word(string);
-
-		int getCount();
-		string getKey();
-
-		void setCount(int);
-		void setKey(string);
-
-		void increment();
-		bool operator == (const word& w); 
-	private:
-		int count;
-		string key;
-	};
+	class word;
 	
 	/* Class that will contain the actual markov chain*/
 	class markovChain {
+
+		friend class word;
 	public:
 		markovChain();
 		markovChain(fstream &);
 		markovChain(string);
 		void printChain();
+		vector<word> getChain(string key);
+		void setProbabilities();
+		string sentenceGen();
+		void punc(string &);
+		string highProb(vector<word>&);
+		vector<string> startWords();
+
 	private:
 		unordered_map<string, vector<word>>  chain;
 	};

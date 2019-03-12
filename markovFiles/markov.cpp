@@ -4,46 +4,17 @@
 #include <vector>
 #include <iterator>
 #include <algorithm>
-
+#include <random>
+#include <ctime>
 
 using namespace markov;
 
 
 
-//Overloaded equality operator for words
-bool word::operator ==(const word& w){
-			
-			if(this->key == w.key)
-				return true;
-			return false;
-}
 
 
-//Word constructor with string as parameter
-word::word(string key) { 
-	this->key = key;
-	this->count = 1;
-}
-
-//Word getters
-int word::getCount() {
-	return this->count;
-}
-string word::getKey() {
-	return this->key;
-}
-
-//Word setters
-void word::setCount(int c) {
-	this->count = c;
-}
-void word::setKey(string k) {
-	this->key = k;
-}
-
-//Word increment
-void word::increment() {
-	this->count++;
+vector<word> markovChain::getChain(string key) {
+	return this->chain[key];
 }
 
 
@@ -96,6 +67,12 @@ markovChain::markovChain(fstream &input) {
 		input >> second;
 	}
 	input.close();
+
+	// for(auto itr = this->chain.begin(); itr != this->chain.end(); itr++) {
+	// 	for(auto it = this->chain.at((*itr).first).begin(); it != this->chain.at((*itr).first).end(); it++ ) {
+	// 		(*it).setProbability(this->chain);
+	// 	}
+	// }
 }
 
 /* Constructor that makes the chain using a string as the 
@@ -153,10 +130,111 @@ void markovChain::printChain() {
 	for(auto itr = this->chain.begin(); itr != this->chain.end(); itr++) {
 		cout << (*itr).first << " : " << "{ ";
 		for(auto it = (*itr).second.begin(); it != (*itr).second.end(); it++) {
-			cout  << (*it).getKey() << " (" << (*it).getCount() << ") ";
+			if((*it).getKey() != "") {
+				cout  << (*it).getKey() << " (" << (*it).getProbability() << ") ";
+			}
 		}
 		cout << " }" << endl;
 	}
+}
+/* Function that sets the weights for each word in the markov chain */
+void markovChain::setProbabilities() {
+	float sum = 0; //number of words that occur
+	float prob = 0; //probability 
+
+ 	/* Loops through the chain, setting the probabilities of each 
+ 	   word in each vector corresponding to a key */
+ 	for(auto iter = this->chain.begin(); iter != this->chain.end(); iter++) {
+		for(auto itr = (*iter).second.begin(); itr != (*iter).second.end(); itr ++) {
+			sum += (*itr).getCount();
+		}
+		for(auto itr = (*iter).second.begin(); itr != (*iter).second.end(); itr ++) {
+ 			if((*itr).getKey() != "") {
+	 			prob = (*itr).getCount()/sum;
+				(*itr).setProbability(prob);	
+ 			}
+		}
+		sum = 0;
+	}
+
+}
+
+/* Function that returns one of the top three highest probability 
+   words in a vector of words (which is assocaited with a key in 
+   the markov chain) */
+string markovChain::highProb(vector<word>& w) {
+	int random = rand() % 3 + 1;
+	word highest;
+	sort(w.begin(), w.end(), word::compare);
+	if(w.size() > random) {
+		highest = w.at(random);
+	} else {
+		highest = w.at(0);
+	}
+	return highest.getKey();
+}
+
+
+/* Function that returns a vector of strings that are "start words"
+   in the input file, these are used to determine a word to start with 
+   for sentence generation */
+vector<string> markovChain::startWords() {
+	fstream input;
+	input.open("twitter.txt");
+	string first = "";
+	string second = "";
+	input >> first;
+	input >> second;
+	vector<string> startWords; 
+	
+	while(!input.eof()) {
+		char end = first.back();
+		if(end == '.') {
+			startWords.push_back(second);
+		}
+		input >> first;
+		input >> second;
+	}
+	
+	input.close();
+	return startWords;
+}
+
+/* Function that checks & changes punctuation of the generated sentence.
+   Removes certain punctation marks, changes case accordingly, adds a
+   period at the end */
+void markovChain::punc(string& s) {
+	s.erase(remove(s.begin(), s.end(), '.'), s.end());
+	s.erase(remove(s.begin(), s.end(), '"'), s.end());
+	s[0] = toupper(s[0]);
+	s.append(".");
+	for(int i = 1; i < s.length(); i++) {
+		if(isupper(s[i])) {
+			s[i] = tolower(s[i]);
+		} 	
+	}
+}
+
+/* Generates a sentence using weights of the markov chain and 
+   returns the sentence as a string */
+string markovChain::sentenceGen() {
+	string sentence = "";
+	string newWord = "";
+	srand(time(NULL));
+	vector<string> start = startWords();
+	int index = rand() % start.size();
+
+	sentence.append(start.at(index));
+	vector<word> words = this->chain[start.at(index)];
+	for(int i = 0; i < 40; i++) {
+		sentence.append(" ");
+		newWord = highProb(words);
+		sentence.append(newWord);
+		words = this->chain[newWord];
+	}
+	punc(sentence);
+	return sentence;
+
 }
 
 

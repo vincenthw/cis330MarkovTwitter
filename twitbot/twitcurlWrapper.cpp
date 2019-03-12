@@ -122,22 +122,23 @@ std::string TwitcurlWrapper::getTweetsByUser(std::string username, int numTweets
 
     // store the response in reply string
     getLastWebResponse(reply);
+    // std::cout << reply << std::endl; // output raw response json, for debugging
 
     // parse reply json
     nlohmann::json parsedReply = nlohmann::json::parse(reply);
 
     std::string combinedTweets = "";
-    for (int i=0; i<numTweets; i++)
+    for (nlohmann::json::iterator it = parsedReply.begin(); it != parsedReply.end(); it++)
     {
         // if tweet is a RT, JSON format is different
-        if (parsedReply[i]["retweeted_status"] != nullptr)
+        if ((*it)["retweeted_status"] != nullptr)
         {
-            combinedTweets.append(parsedReply[i]["retweeted_status"]["full_text"]);
+            combinedTweets.append((*it)["retweeted_status"]["full_text"]);
             combinedTweets.append(" ");
         } 
         else
         {
-            combinedTweets.append(parsedReply[i]["full_text"]);
+            combinedTweets.append((*it)["full_text"]);
             combinedTweets.append(" ");
         }
     }

@@ -86,8 +86,11 @@ int main()
 		generates markov chain frequencies, 
 		prints frequencies. 
 	 */
-	markov::markovChain chain(getInputUsernames(twitWrapper));
+	std::string s = getInputUsernames(twitWrapper);
+	std::cout << s << std::endl;
+	markov::markovChain chain(s);
 	chain.printChain();
+	chain.genSentence();
 
 	/* 
 	Code here to ask what user wants to do:

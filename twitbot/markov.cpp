@@ -157,7 +157,7 @@ string markovChain::highProb(vector<word>& w) {
     int random = rand() % 3 + 1;
     word highest;
     sort(w.begin(), w.end(), word::compare);
-    if (w.size() > random) {
+    if (w.size() > static_cast<unsigned int>(random)) {
         highest = w.at(random);
     } else {
         highest = w.at(0);
@@ -166,15 +166,15 @@ string markovChain::highProb(vector<word>& w) {
 }
 
 string markovChain::highProb2(vector<word>& w) {
-    int sum = 1;
-    auto it = w.begin();
     float choice = rand() / (RAND_MAX + 1.);
-    for  (int i = 0; i < w.size(); i++) {
+    for (int i = 0; static_cast<unsigned int>(i) < w.size(); i++) {
         if (choice < w.at(i).getProbability()) {
             return w.at(i).getKey();
         }
         choice -= w.at(i).getProbability();
     }
+    cout << "Error in Probability calculation" << endl;
+    return w.at(0).getKey(); //should never reach here, only wrote this to avoid error
 }
 
 /* Function that returns a vector of strings that are "start words"
@@ -210,7 +210,7 @@ void markovChain::punc(string& s) {
     s.erase(remove(s.begin(), s.end(), '"'), s.end());
     s[0] = toupper(s[0]);
     s.append(".");
-    for (int i = 1; i < s.length(); i++) {
+    for (int i = 1; static_cast<unsigned int>(i) < s.length(); i++) {
         if (isupper(s[i])) {
             s[i] = tolower(s[i]);
         }

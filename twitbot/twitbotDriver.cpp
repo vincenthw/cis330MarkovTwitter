@@ -24,7 +24,7 @@ OUTER:
 		}
 
 		combinedTweets.append(twitWrapper.getTweetsByUser(username, 200, true));
-		std::cout << "Added " << username << "'s last 200 tweets to the markov chain generation. " << std::endl;
+		// std::cout << "Added " << username << "'s last 200 tweets to the markov chain generation. " << std::endl;
 
 		while (running)
 		{
@@ -81,34 +81,15 @@ int main()
 
 	TwitcurlWrapper twitWrapper;
 
-	/* It works!!!!! 
-		Asks users for twitter usernames, 
-		generates markov chain frequencies, 
-		prints frequencies. 
-	 */
+
 	std::string s = getInputUsernames(twitWrapper);
-	std::cout << s << std::endl;
-	markov::markovChain chain(s);
-	chain.printChain();
-	chain.genSentence();
-	
-	/* 
-	Code here to ask what user wants to do:
-		0 use tweets from search
-		1 use tweets from specific users
-	
-	Then call the appropriate function:
-		string combinedTweets;
+	markov::markovChain mark(s);
+	mark.setProbabilities();
+	// mark.printChain();
+	std::string x = mark.sentenceGen2();
 
-		if (0) { combinedTweets = getInputSearch(twitWrapper); }
-		if (1) { combinedTweets = getInputUsernames(twitWrapper); }
+	std::cout << x << std::endl;
 
-	Then use the markov chain somehow:
-
-		markovChain chain(combinedTweets);
-		chain.printChain();
-
-	 */
 
 	exit(0);
 }

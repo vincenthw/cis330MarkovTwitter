@@ -8,8 +8,8 @@ SRC = $(wildcard *.cpp)
 # all: $(SRC)
 # 	$(CC) $(SRC) $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
 
-main: twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp
-	$(CC) twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
+main: twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp word.cpp
+	$(CC) twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp word.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
 
 web: twitcurlWrapper.cpp wepage_driver.cpp markov.cpp
 	$(CC) twitcurlWrapper.cpp wepage_driver.cpp markov.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o webbot.exe

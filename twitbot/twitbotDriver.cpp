@@ -24,7 +24,7 @@ OUTER:
 		}
 
 		combinedTweets.append(twitWrapper.getTweetsByUser(username, 200, true));
-		std::cout << "Added " << username << "'s last 200 tweets to the markov chain generation. " << std::endl;
+		// std::cout << "Added " << username << "'s last 200 tweets to the markov chain generation. " << std::endl;
 
 		while (running)
 		{
@@ -85,7 +85,7 @@ int main()
 	std::string s = getInputUsernames(twitWrapper);
 	markov::markovChain mark(s);
 	mark.setProbabilities();
-	// mark.printChain();
+	mark.printChain();
 	std::string x = mark.sentenceGen();
 
 	std::cout << x << std::endl;

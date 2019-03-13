@@ -145,6 +145,8 @@ std::string TwitcurlWrapper::getTweetsByUser(std::string username, int numTweets
 
     combinedTweets = cleanText(combinedTweets);
 
+    std::cout << "Retrieved " << username << "'s last " << parsedReply.size() << " tweets." << std::endl;
+
     return combinedTweets;
     // return reply;
 }

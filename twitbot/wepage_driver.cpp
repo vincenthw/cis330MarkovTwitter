@@ -2,7 +2,8 @@
 #include "markov.hpp"
 #include <string>
 #include <iostream>
-
+#include <fstream>
+/*
 // Function to prompt user for twitter usernames that will be used in markov chain
 std::string getInputUsernames(TwitcurlWrapper twitWrapper)
 {
@@ -74,21 +75,42 @@ std::string getInputSearch(TwitcurlWrapper twitWrapper)
 		}
 	}
 }
-
+*/
 int main()
 {
+	std::string tweet;
+	std::string funct;
+	std::string data;
+	std::ifstream f("hack_test.txt");
 
+	std::getline(f,funct)
+	std::getline(f,data)
+	TwitcurlWrapper twitWrapper; 
 
-	TwitcurlWrapper twitWrapper;
+	if(funct == "handle"){
+		 if (data.empty() || !twitWrapper.isValidUsername(data)) {
+			std::cout << "Invalid username, try again." << std::endl;	
+			continue;
+		}
+		std::string tweet = twitWrapper.getTweetsByUser(data, 50, true)
+		}
+	else if (funct == "keyword"){
+		std::string tweet = twitWrapper.searchTwitter(data, 50);
+	}
+	else{
+		std::cout << "The file was not opened or is not there" << std::endl;
+	}
+	
+//	TwitcurlWrapper twitWrapper;
 
 	/* It works!!!!! 
 		Asks users for twitter usernames, 
 		generates markov chain frequencies, 
 		prints frequencies. 
 	 */
-	std::string s = getInputUsernames(twitWrapper);
-	std::cout << s << std::endl;
-	markov::markovChain chain(s);
+//	std::string s = getInputUsernames(twitWrapper);
+	std::cout << tweet << std::endl;
+	markov::markovChain chain(tweet);
 	chain.printChain();
 	chain.genSentence();
 	

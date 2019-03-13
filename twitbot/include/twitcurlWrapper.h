@@ -1,3 +1,6 @@
+#ifndef TWITCURLWRAPPER_HPP
+#define TWITCURLWRAPPER_HPP
+
 #include "twitcurl.h"
 
 // See twitcurlWrapper.cpp for detailed function documentation
@@ -20,3 +23,5 @@ private:
     // remove twitter links from string
     std::string cleanText(std::string input);
 };
+
+#endif

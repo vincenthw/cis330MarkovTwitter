@@ -1,10 +1,11 @@
 #include "twitcurlWrapper.h"
 #include "markov.hpp"
+#include "commandLineIO.hpp"
 #include <string>
 #include <iostream>
 
 // Function to prompt user for twitter usernames that will be used in markov chain
-std::string getInputUsernames(TwitcurlWrapper twitWrapper)
+/* std::string getInputUsernames(TwitcurlWrapper twitWrapper)
 {
 	std::string username;
 	bool running = true;
@@ -73,7 +74,7 @@ std::string getInputSearch(TwitcurlWrapper twitWrapper)
 
 		}
 	}
-}
+} */
 
 int main()
 {

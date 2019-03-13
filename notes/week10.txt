@@ -1,0 +1,6 @@
+3/12
+worked together to merge/link/and implement our compentents (twitcurl, webpage, flask, marvokchain, ect.) into the master branch. currently working on final touches and bug fixes to the markovchain which all driver files are ready to implement the chain
+
+3/12
+- the webpage and flask is now merged and ready for the final version of the markov chain to be merged aswell. 
+- developed a driver c++ file that will hand the infromation from the flask (index.py) program and send it off to the twitcurl wrapper to be prosecced and fed to the markov chain.

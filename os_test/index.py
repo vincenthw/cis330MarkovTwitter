@@ -21,9 +21,8 @@ def submit():
 	f.write(string2)
 	f.close()
 	# os.system("cat hack_test.txt")	
-	# os.system("g++ ../twitbot/wepage_driver.cpp -o webbot.exe")
-	# os.system("make ../twitbot/web")
-	os.system("../twitbot/webbot.exe")	
+	os.system("make -C ../twitbot web")
+	os.system("../twitbot/web_bot.exe")	
 #	test.test1(string1, string2)
 	return flask.render_template('twit.html')
 app.debug = True

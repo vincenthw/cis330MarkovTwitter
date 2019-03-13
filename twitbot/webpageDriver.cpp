@@ -33,7 +33,7 @@ int main()
 
 	markov::markovChain chain(tweet);
 	chain.printChain();
-	chain.genSentence();
+	chain.sentenceGen();
 	
 
 	exit(0);

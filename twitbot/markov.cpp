@@ -166,8 +166,15 @@ string markovChain::highProb(vector<word>& w) {
 }
 
 string markovChain::highProb2(vector<word>& w) {
-    int sum = 0;
-    
+    int sum = 1;
+    auto it = w.begin();
+    float choice = rand() / (RAND_MAX + 1.);
+    for  (int i = 0; i < w.size(); i++) {
+        if (choice < w.at(i).getProbability()) {
+            return w.at(i).getKey();
+        }
+        choice -= w.at(i).getProbability();
+    }
 }
 
 /* Function that returns a vector of strings that are "start words"
@@ -249,7 +256,7 @@ string  markovChain::sentenceGen2() {
         result.append(" ");
         words = chain[(*it)];
         while (true) {
-            newWord = highProb(words);
+            newWord = highProb2(words);
             result.append(newWord);
             result.append(" ");
             words = chain[newWord];

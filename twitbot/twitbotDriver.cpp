@@ -85,7 +85,7 @@ int main()
 	std::string s = getInputUsernames(twitWrapper);
 	markov::markovChain mark(s);
 	mark.setProbabilities();
-	mark.printChain();
+	// mark.printChain();
 	std::string x = mark.sentenceGen2();
 
 	std::cout << x << std::endl;

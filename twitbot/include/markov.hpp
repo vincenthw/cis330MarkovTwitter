@@ -28,12 +28,15 @@ class markovChain {
     vector<word> getChain(string key);
     void setProbabilities();
     string sentenceGen();
+    string sentenceGen2();
     void punc(string &);
     string highProb(vector<word> &);
+    string highProb2(vector<word> &);
     vector<string> startWords();
 
    private:
     unordered_map<string, vector<word>> chain;
+    vector<string> startingWords;
 };
 
 }  // namespace markov

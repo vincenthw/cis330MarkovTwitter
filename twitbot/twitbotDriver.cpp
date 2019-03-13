@@ -86,7 +86,7 @@ int main()
 	markov::markovChain mark(s);
 	mark.setProbabilities();
 	mark.printChain();
-	std::string x = mark.sentenceGen();
+	std::string x = mark.sentenceGen2();
 
 	std::cout << x << std::endl;
 

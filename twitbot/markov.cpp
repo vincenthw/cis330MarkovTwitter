@@ -107,6 +107,12 @@ markovChain::markovChain(string input) {
                 itr->increment();
             }
         }
+
+        /* Check if word is uppercase, if it is, 
+        consider it a sentence starter.*/
+        if (isupper(first[0])) {
+            startingWords.push_back(first);
+        }
     }
 }
 
@@ -157,6 +163,11 @@ string markovChain::highProb(vector<word>& w) {
         highest = w.at(0);
     }
     return highest.getKey();
+}
+
+string markovChain::highProb2(vector<word>& w) {
+    int sum = 0;
+    
 }
 
 /* Function that returns a vector of strings that are "start words"
@@ -223,4 +234,30 @@ string markovChain::sentenceGen() {
     }
     punc(sentence);
     return sentence;
+}
+
+string  markovChain::sentenceGen2() {
+    string result = "";
+    string newWord;
+    vector<word> words;
+    
+    for (int i = 0; i < 5; i++) {
+        auto it = startingWords.begin();
+        int randomIndex = rand() % startingWords.size();
+        advance(it, randomIndex);
+        result.append(*it);
+        result.append(" ");
+        words = chain[(*it)];
+        while (true) {
+            newWord = highProb(words);
+            result.append(newWord);
+            result.append(" ");
+            words = chain[newWord];
+            if (newWord.back() == '.' || newWord.back() == '!' || newWord.back() == '?') {
+                break;
+            }
+        }
+    }
+
+    return result;
 }

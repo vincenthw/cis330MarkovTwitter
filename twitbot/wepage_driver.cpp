@@ -81,21 +81,20 @@ int main()
 	std::string tweet;
 	std::string funct;
 	std::string data;
-	std::ifstream f("hack_test.txt");
+	std::ifstream f("../os_test/hack_test.txt");
 
-	std::getline(f,funct)
-	std::getline(f,data)
+	std::getline(f,funct);
+	std::getline(f,data);
 	TwitcurlWrapper twitWrapper; 
 
 	if(funct == "handle"){
 		 if (data.empty() || !twitWrapper.isValidUsername(data)) {
-			std::cout << "Invalid username, try again." << std::endl;	
-			continue;
+			std::cout << "Invalid username, try again." << std::endl;
 		}
-		std::string tweet = twitWrapper.getTweetsByUser(data, 50, true)
-		}
+		tweet = twitWrapper.getTweetsByUser(data, 200, true);
+	}
 	else if (funct == "keyword"){
-		std::string tweet = twitWrapper.searchTwitter(data, 50);
+		tweet = twitWrapper.searchTwitter(data, 50);
 	}
 	else{
 		std::cout << "The file was not opened or is not there" << std::endl;
@@ -110,6 +109,7 @@ int main()
 	 */
 //	std::string s = getInputUsernames(twitWrapper);
 	std::cout << tweet << std::endl;
+
 	markov::markovChain chain(tweet);
 	chain.printChain();
 	chain.genSentence();

@@ -11,6 +11,9 @@ SRC = $(wildcard *.cpp)
 main: twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp
 	$(CC) twitcurlWrapper.cpp twitbotDriver.cpp markov.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o bot.exe
 
+web: twitcurlWrapper.cpp wepage_driver.cpp markov.cpp
+	$(CC) twitcurlWrapper.cpp wepage_driver.cpp markov.cpp $(CFLAGS) $(LIBS) $(INCLUDE) -o webbot.exe
+
 
 testMarkov.exe: testMarkov.cpp markov.cpp
 	$(CC) markov.cpp testMarkov.cpp $(CFLAGS) $(INCLUDE) -o testMarkov.exe

@@ -90,10 +90,30 @@ string getInputTextFile(TwitcurlWrapper twitWrapper) {
         string choice;
         getline(cin, choice);
         cout << endl;
-        int numChoice = stoi(choice);
-
-        if (0 <= numChoice && static_cast<unsigned int>(numChoice) < filePaths.size()){
+        int numChoice;
+        try {
+            numChoice = stoi(choice);
+        } catch (...) {
+            continue;
+        }
+        if (0 <= numChoice && static_cast<unsigned int>(numChoice) < filePaths.size()) {
             return filePaths.at(numChoice);
         }
+    }
+}
+
+int getNumSentences() {
+    string choice;
+    int numChoice;
+    while (true) {
+        cout << "How many sentences would you like to generate?: ";
+        getline(cin, choice);
+        cout << endl;
+        try {
+            numChoice = stoi(choice);
+        } catch (...) {
+            continue;
+        }
+        return numChoice;
     }
 }

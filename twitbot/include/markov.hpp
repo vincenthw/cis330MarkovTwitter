@@ -28,7 +28,7 @@ class markovChain {
     vector<word> getChain(string key);
     void setProbabilities();
     string sentenceGen();
-    string sentenceGen2();
+    string sentenceGen2(int numSentences=3);
     void punc(string &);
     string highProb(vector<word> &);
     string highProb2(vector<word> &);

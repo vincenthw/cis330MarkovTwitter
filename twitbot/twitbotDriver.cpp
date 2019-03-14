@@ -39,7 +39,8 @@ int main()
 					result = getInputUsernames(twitWrapper);
                     markov::markovChain mark(result);
 					mark.setProbabilities();
-					result = mark.sentenceGen2();
+					int numSentences = getNumSentences();
+					result = mark.sentenceGen2(numSentences);
                     break;
 				}
 
@@ -47,7 +48,8 @@ int main()
 					result = getInputSearch(twitWrapper);
                     markov::markovChain mark(result);
                     mark.setProbabilities();
-                    result = mark.sentenceGen2();
+                    int numSentences = getNumSentences();
+                    result = mark.sentenceGen2(numSentences);
                     break;
 				}
 				
@@ -56,7 +58,8 @@ int main()
 					fstream input;
 					markov::markovChain mark(input, result);
 					mark.setProbabilities();
-					result = mark.sentenceGen();
+					int numSentences = getNumSentences();
+					result = mark.sentenceGen2(numSentences);
 					break;
 				}
 

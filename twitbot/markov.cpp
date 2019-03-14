@@ -48,23 +48,16 @@ markovChain::markovChain(fstream& input, string filePath) {
             } else {
                 itr->increment();
             }
-
-            // // else
-            // // else {
-
-            // }
         }
 
         first = second;
         input >> second;
+
+        if (isupper(first[0])) {
+            startingWords.push_back(first);
+        }
     }
     input.close();
-
-    // for(auto itr = this->chain.begin(); itr != this->chain.end(); itr++) {
-    // 	for(auto it = this->chain.at((*itr).first).begin(); it != this->chain.at((*itr).first).end(); it++ ) {
-    // 		(*it).setProbability(this->chain);
-    // 	}
-    // }
 }
 
 /* Constructor that makes the chain using a string as the 
@@ -244,12 +237,12 @@ string markovChain::sentenceGen() {
     return sentence;
 }
 
-string  markovChain::sentenceGen2() {
+string  markovChain::sentenceGen2(int numSentences) {
     string result = "";
     string newWord;
     vector<word> words;
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < numSentences; i++) {
         auto it = startingWords.begin();
         int randomIndex = rand() % startingWords.size();
         advance(it, randomIndex);

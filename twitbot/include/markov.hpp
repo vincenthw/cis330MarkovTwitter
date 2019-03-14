@@ -22,7 +22,7 @@ class markovChain {
 
    public:
     markovChain();
-    markovChain(fstream &);
+    markovChain(fstream &, string fname);
     markovChain(string);
     void printChain();
     vector<word> getChain(string key);

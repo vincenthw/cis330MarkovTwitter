@@ -1,4 +1,5 @@
 #include "commandLineIO.hpp"
+#include <experimental/filesystem>
 
 // Function to prompt users for search queries that will be used in markov chain
 string getInputSearch(TwitcurlWrapper twitWrapper) {
@@ -22,6 +23,7 @@ string getInputSearch(TwitcurlWrapper twitWrapper) {
             cout << searchTweets << endl;
         }
     }
+    return "";
 }
 
 // Function to prompt user for twitter usernames that will be used in markov chain
@@ -62,4 +64,36 @@ OUTER:
     }
 
     return combinedTweets;
+}
+
+string getInputTextFile(TwitcurlWrapper twitWrapper) {
+    
+    cout << "Select file to read from:" << endl;
+
+    namespace fs = std::experimental::filesystem;
+    
+    string path = "./text_files/";
+    vector<string> filePaths;
+    string file;
+
+    int i = 0;
+    for (const auto & entry : fs::directory_iterator(path)) {
+        file = entry.path();
+        cout << "[" << i << "] -- " << file << endl;
+        filePaths.push_back(entry.path());
+        i++;
+    }
+
+    string result;
+    while (true) {
+        cout << "Make selection: ";
+        string choice;
+        getline(cin, choice);
+        cout << endl;
+        int numChoice = stoi(choice);
+
+        if (0 <= numChoice && static_cast<unsigned int>(numChoice) < filePaths.size()){
+            return filePaths.at(numChoice);
+        }
+    }
 }

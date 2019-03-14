@@ -15,8 +15,9 @@ vector<word> markovChain::getChain(string key) {
 
 /* Constructor that makes the chain using a text file as the 
    input */
-markovChain::markovChain(fstream& input) {
-    input.open("twitter.txt");
+markovChain::markovChain(fstream& input, string filePath) {
+
+    input.open(filePath);
 
     string first = "";
     string second = "";

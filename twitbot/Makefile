@@ -1,6 +1,6 @@
 CC = g++
 INCLUDE = -Iinclude
-LIBS = -Lbin -lcurl -ltwitcurl
+LIBS = -Lbin -lcurl -ltwitcurl -lstdc++fs
 CFLAGS = -Wall -g -std=c++14
 SRC = $(wildcard *.cpp)
 

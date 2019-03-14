@@ -4,77 +4,6 @@
 #include <string>
 #include <iostream>
 
-// Function to prompt user for twitter usernames that will be used in markov chain
-/* std::string getInputUsernames(TwitcurlWrapper twitWrapper)
-{
-	std::string username;
-	bool running = true;
-	std::string combinedTweets;
-
-OUTER:
-	while (running)
-	{
-		std::cout << "Enter a twitter username: ";
-		std::getline(std::cin, username);
-
-		std::cout << "checking valid: " << username << std::endl;
-		if (username.empty() || !twitWrapper.isValidUsername(username))
-		{
-			std::cout << "Invalid username, try again." << std::endl;
-			continue;
-		}
-
-		combinedTweets.append(twitWrapper.getTweetsByUser(username, 200, true));
-		// std::cout << "Added " << username << "'s last 200 tweets to the markov chain generation. " << std::endl;
-
-		while (running)
-		{
-			std::string input;
-			std::cout << "Add another user [Y/N]? ";
-			std::getline(std::cin, input);
-			if (std::toupper(input[0]) == 'Y')
-			{
-				goto OUTER;
-			}
-			else if (std::toupper(input[0]) == 'N')
-			{
-				running = false;
-			}
-		}
-	}
-
-	return combinedTweets;
-}
-
-// Function to prompt users for search queries that will be used in markov chain
-std::string getInputSearch(TwitcurlWrapper twitWrapper)
-{
-	std::string search = "";
-
-	while (search == "")
-	{
-		std::cout << "Please insert a category of interest: ";
-		std::cin >> search;
-		if (search[0] == '#')
-		{
-			std::cout << "You can not enter hashtags for your search" << std::endl;
-			std::cin.ignore(1000000, '\n');
-			std::cin.clear();
-			search = "";
-		}
-	}
-
-	if (search != "")
-	{
-		if (search[0] != '#')
-		{
-			// uses twitter "search" functionality
-			std::string searchTweets = twitWrapper.searchTwitter(search, 1);
-			std::cout << searchTweets << std::endl;
-
-		}
-	}
-} */
 
 int main()
 {
@@ -83,14 +12,62 @@ int main()
 	TwitcurlWrapper twitWrapper;
 
 
-	std::string s = getInputUsernames(twitWrapper);
+	/* std::string s = getInputUsernames(twitWrapper);
 	markov::markovChain mark(s);
 	mark.setProbabilities();
 	// mark.printChain();
-	std::string x = mark.sentenceGen2();
+	std::string x = mark.sentenceGen2(); */
 
-	std::cout << x << std::endl;
+	// std::cout << x << std::endl;
 
+        cout << "How would you like to use TwitBot?" << endl;
+        cout << "[0] -- Generate tweet from Twitter user(s)" << endl;
+        cout << "[1] -- Generate tweet from Twitter search" << endl;
+		cout << "[2] -- Generate tweet from Text file" << endl;
 
-	exit(0);
+        bool repeat;
+		string result;
+        do {
+			repeat =  false;
+            cout << "Make selection: ";
+            string choice;
+            getline(cin, choice);
+            cout << endl;
+
+            switch (choice[0]) {
+                case '0': {
+					result = getInputUsernames(twitWrapper);
+                    markov::markovChain mark(result);
+					mark.setProbabilities();
+					result = mark.sentenceGen2();
+                    break;
+				}
+
+                case '1': {
+					result = getInputSearch(twitWrapper);
+                    markov::markovChain mark(result);
+                    mark.setProbabilities();
+                    result = mark.sentenceGen2();
+                    break;
+				}
+				
+				case '2': {
+					result = getInputTextFile(twitWrapper); // result is path to text file
+					fstream input;
+					markov::markovChain mark(input, result);
+					mark.setProbabilities();
+					result = mark.sentenceGen();
+					break;
+				}
+
+                default: {
+					repeat = true;
+                    break;
+				}
+            }
+        } while (repeat);
+
+		cout << result << endl;
+
+        exit(0);
 }

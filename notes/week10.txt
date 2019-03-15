@@ -4,3 +4,12 @@ worked together to merge/link/and implement our compentents (twitcurl, webpage, 
 3/12
 - the webpage and flask is now merged and ready for the final version of the markov chain to be merged aswell. 
 - developed a driver c++ file that will hand the infromation from the flask (index.py) program and send it off to the twitcurl wrapper to be prosecced and fed to the markov chain.
+
+3/13
+	-test the markov and the webpage. Checksout!
+
+3/14
+	-final group meeting before the big day
+		-constructed tweets from the marvok chain are not automatically tweeted to the AI profile
+		-added method to webpage so that multipul keywords or twitter handels can now be used together
+		

@@ -1,29 +1,25 @@
 #include "commandLineIO.hpp"
 #include <experimental/filesystem>
 
-// Function to prompt users for search queries that will be used in markov chain
+bool is_alphanum(string &str) {
+    return (str.find_first_not_of("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos);
+}
+
 string getInputSearch(TwitcurlWrapper twitWrapper) {
-    string search = "";
+    string query;
+    bool running = true;
+    while (running) {
+        cout << "Enter a search query: ";
+        getline(cin, query);
 
-    while (search == "") {
-        cout << "Please insert a category of interest: ";
-        cin >> search;
-        if (search[0] == '#') {
-            cout << "You can not enter hashtags for your search" << endl;
-            cin.ignore(1000000, '\n');
-            cin.clear();
-            search = "";
+        if (!is_alphanum(query)) {
+            cout << "Invalid character. Alphanumeric only." << endl;
+            continue;
+        } else {
+            running = false;
         }
     }
-
-    if (search != "") {
-        if (search[0] != '#') {
-            // uses twitter "search" functionality
-            string searchTweets = twitWrapper.searchTwitter(search, 1);
-            cout << searchTweets << endl;
-        }
-    }
-    return "";
+    return twitWrapper.searchTwitter(query, 100);
 }
 
 // Function to prompt user for twitter usernames that will be used in markov chain

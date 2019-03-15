@@ -99,6 +99,8 @@ std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets)
         }
     }
 
+    combinedTweets = cleanText(combinedTweets);
+
     return combinedTweets;
 }
 

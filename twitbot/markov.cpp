@@ -227,7 +227,6 @@ string markovChain::sentenceGen() {
     vector<word> words = this->chain[highProb((*random_it).second)];
 
     for (int i = 0; i < 40; i++) {
-        // cout << newWord << endl;
         sentence.append(" ");
         newWord = highProb(words);
         sentence.append(newWord);

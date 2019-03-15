@@ -2,9 +2,10 @@
 
 
 #About 
-Using the Twitcurl library, the program takes 200 tweets from one or more user selected twitter accounts or a twitter search then loads them into a Markov Chain. Using the Markov Chain it then generates its own tweet based on the user or search and uses the twitcurl library to tweet to the account @330Twitbot
+Uses the Twitter API to pull tweets from one or more user selected twitter accounts or a twitter search then feeds them into a Markov Chain. The Markov Chain then generates its own tweet based the word usage/frequency of its data.
 
-#Install libcurl4 
+#Installation
+##Install libcurl4 
 
 dependency: libcurl4
 
@@ -16,14 +17,25 @@ for Arch:
 
 `pacman -Ql curl | grep /usr/lib/libcurl`
 
-#Install libcurl
+##Installation script
 
-run installation script (install.sh):
+The installation script compiles and installs the libtwitcurl library (github.com/theryangeary/twitcurl/), then compiles our code base.
 
 `./install.sh`
 
 Note: may need `sudo` to access `/usr/lib`
 
-#Run CLI
+#Run Program
+The program can be used in two ways: via command line interface (CLI), or python flask webserver. The webserver is accessed via a web browser at localhost:5000.
+
+##CLI
+To run the CLI:
 
 `./bot.exe`
+
+##Web Interface
+To run the flask webserver:
+`python3 os_test/index.py`
+
+Then access the webpage at:
+localhost:5000

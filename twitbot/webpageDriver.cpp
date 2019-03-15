@@ -51,9 +51,11 @@ int main()
 	//check if tweet is too big for a tweet if it is just tweet what is can be fit
 	if(ourTweet.size() > 130){ //restrict size to be under 140 cause its an old api don't think it was updated to new tweet length
 		ourTweet.substr(0, 130);
+		std::cout << ourTweet << std::endl; //For printing the tweet incase tweetIt stops working.
 		tweetIt(twitWrapper, ourTweet);
 	}
 	else{
+		std::cout << ourTweet << std::endl; //For printing the tweet incase tweetIt stops working.
 		tweetIt(twitWrapper, ourTweet);
 	}
 

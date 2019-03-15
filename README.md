@@ -27,7 +27,6 @@ Note: may need `sudo` to access `/usr/lib`
 
 #Run Program
 The program can be used in two ways: 
-
     - command line interface (CLI)
     - python flask webserver (accessed via a web browser at localhost:5000)
 

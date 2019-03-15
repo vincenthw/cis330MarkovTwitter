@@ -12,6 +12,12 @@ for Ubuntu:
 
 sudo apt install libcurl4-openssl-dev
 
+for Archlinux:
+
+pacman -Ql curl | grep /usr/lib/libcurl
+
+#then
+
 run script install.sh -> needs sudo to access the /user/lib directory 
 
 run bot.exe

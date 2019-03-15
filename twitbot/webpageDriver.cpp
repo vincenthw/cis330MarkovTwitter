@@ -4,6 +4,10 @@
 #include <iostream>
 #include <fstream>
 
+void tweetIt(TwitcurlWrapper twitWrapper, std::string sentence){
+	twitWrapper.statusUpdate(sentence);
+}
+
 
 int main()
 {
@@ -17,17 +21,21 @@ int main()
 	TwitcurlWrapper twitWrapper; 
 
 	if(funct == "handle"){
-		 if (data.empty() || !twitWrapper.isValidUsername(data)) {
-			std::cout << "Invalid username, try again." << std::endl;
-		}
-		while(!input.eof()){
-			tweet.append(twitWrapper.getTweetsByUser(data, 100, true); 
+		while(!f.eof()){
+			std::cout << "Made it here" << std::endl;
+			std::getline(f, data);
+			if (!twitWrapper.isValidUsername(data)) {
+				std::cout << "Invalid username, try again." << std::endl;
+			}
+			std::cout << "getting data from" << data << std::endl;
+			tweet.append(twitWrapper.getTweetsByUser(data, 100, true)); 
 		}
 //		tweet = twitWrapper.getTweetsByUser(data, 200, true);
 	}
 	else if (funct == "keyword"){
-		while(!input.eof){
-			tweet.append(twitWrapper.searchTwitter(data, 100));
+		while(!f.eof()){
+			std::getline(f, data);
+			tweet.append(twitWrapper.searchTwitter(data, 3));
 		}
 	}
 
@@ -38,9 +46,17 @@ int main()
 	std::cout << tweet << std::endl;
 
 	markov::markovChain chain(tweet);
-	chain.printChain();
-	chain.sentenceGen();
-	
+	chain.setProbabilities();
+	std::string ourTweet = chain.sentenceGen();
+
+	//check if tweet is too big for a tweet if it is just tweet what is can be fit
+	if(ourTweet.size() > 280){
+		ourTweet.substr(0, 280);
+		tweetIt(twitWrapper, ourTweet);
+	}
+	else{
+		tweetIt(twitWrapper, ourTweet);
+	}
 
 	exit(0);
 }

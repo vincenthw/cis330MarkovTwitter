@@ -52,4 +52,4 @@ localhost:5000
 
 2. When using the webpage version of the program if you do a keyword category search, 90% of the time we recieved a out of bounds error the other 10% of the time it randomly works.
 
-3. Posting the tweets, via the statusUpdate() function in the twitcurl library, is inconsistant. It worked consistantly for about 30 posts and then started returning a success indicator without ever posting the tweet to the account.
+3. Posting the tweets, via the statusUpdate() function in the twitcurl library, is inconsistent. It worked consistently for about 30 posts and then started returning a success indicator without ever posting the tweet to the account.

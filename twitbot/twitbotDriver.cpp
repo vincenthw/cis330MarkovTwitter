@@ -4,73 +4,63 @@
 #include <string>
 #include <iostream>
 
-
 int main()
 {
 
 
 	TwitcurlWrapper twitWrapper;
 
+	cout << "How would you like to use TwitBot?" << endl;
+	cout << "[0] -- Generate tweet from Twitter user(s)" << endl;
+	cout << "[1] -- Generate tweet from Twitter search" << endl;
+	cout << "[2] -- Generate tweet from Text file" << endl;
 
-	/* std::string s = getInputUsernames(twitWrapper);
-	markov::markovChain mark(s);
-	mark.setProbabilities();
-	// mark.printChain();
-	std::string x = mark.sentenceGen2(); */
+	bool repeat;
+	string result;
+	do {
+		repeat =  false;
+		cout << "Make selection: ";
+		string choice;
+		getline(cin, choice);
+		cout << endl;
 
-	// std::cout << x << std::endl;
+		switch (choice[0]) {
+			case '0': {
+				result = getInputUsernames(twitWrapper);
+				markov::markovChain mark(result);
+				mark.setProbabilities();
+				int numSentences = getNumSentences();
+				result = mark.sentenceGen2(numSentences);
+				break;
+			}
 
-        cout << "How would you like to use TwitBot?" << endl;
-        cout << "[0] -- Generate tweet from Twitter user(s)" << endl;
-        cout << "[1] -- Generate tweet from Twitter search" << endl;
-		cout << "[2] -- Generate tweet from Text file" << endl;
+			case '1': {
+				result = getInputSearch(twitWrapper);
+				markov::markovChain mark(result);
+				mark.setProbabilities();
+				int numSentences = getNumSentences();
+				result = mark.sentenceGen2(numSentences);
+				break;
+			}
+			
+			case '2': {
+				result = getInputTextFile(twitWrapper); // result is path to text file
+				fstream input;
+				markov::markovChain mark(input, result);
+				mark.setProbabilities();
+				int numSentences = getNumSentences();
+				result = mark.sentenceGen2(numSentences);
+				break;
+			}
 
-        bool repeat;
-		string result;
-        do {
-			repeat =  false;
-            cout << "Make selection: ";
-            string choice;
-            getline(cin, choice);
-            cout << endl;
+			default: {
+				repeat = true;
+				break;
+			}
+		}
+	} while (repeat);
 
-            switch (choice[0]) {
-                case '0': {
-					result = getInputUsernames(twitWrapper);
-                    markov::markovChain mark(result);
-					mark.setProbabilities();
-					int numSentences = getNumSentences();
-					result = mark.sentenceGen2(numSentences);
-                    break;
-				}
+	cout << result << endl;
 
-                case '1': {
-					result = getInputSearch(twitWrapper);
-                    markov::markovChain mark(result);
-                    mark.setProbabilities();
-                    int numSentences = getNumSentences();
-                    result = mark.sentenceGen2(numSentences);
-                    break;
-				}
-				
-				case '2': {
-					result = getInputTextFile(twitWrapper); // result is path to text file
-					fstream input;
-					markov::markovChain mark(input, result);
-					mark.setProbabilities();
-					int numSentences = getNumSentences();
-					result = mark.sentenceGen2(numSentences);
-					break;
-				}
-
-                default: {
-					repeat = true;
-                    break;
-				}
-            }
-        } while (repeat);
-
-		cout << result << endl;
-
-        exit(0);
+    exit(0);
 }

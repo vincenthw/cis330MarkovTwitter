@@ -84,18 +84,18 @@ std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets)
     nlohmann::json parsedReply = nlohmann::json::parse(reply)["statuses"];
 
     std::string combinedTweets = "";
-    for (int i = 0; i < numTweets; i++)
+    for (nlohmann::json::iterator it = parsedReply.begin(); it != parsedReply.end(); it++)
     {
         // if tweet is a RT, JSON format is different
-        if (parsedReply[i]["retweeted_status"] != nullptr)
+        if ((*it)["retweeted_status"] != nullptr)
         {
-            combinedTweets.append(parsedReply[i]["retweeted_status"]["text"]);
-            combinedTweets.append("\n");
+            combinedTweets.append((*it)["retweeted_status"]["text"]);
+            combinedTweets.append(" ");
         }
         else
         {
-            combinedTweets.append(parsedReply[i]["text"]);
-            combinedTweets.append("\n");
+            combinedTweets.append((*it)["text"]);
+            combinedTweets.append(" ");
         }
     }
 

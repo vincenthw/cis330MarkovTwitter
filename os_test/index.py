@@ -16,19 +16,29 @@ def submit():
 	#Extracting the variable input from the users submitted form
 	string1 = request.form["category"]
 	string2 = request.form["text"]
+
+	#splitting string2 into array incase there are multiple inputs
 	ls_cats = string2.split()
 	app.logger.debug(ls_cats)
+
+	#open file to write in data that C++ function will access
 	f = open("hack_test.txt", "w")
 	f.write(string1 + "\n")
 	if len(ls_cats) != 0:
-		for val in ls_cats:
-			f.write(val)
+		for val in range(0, len(ls_cats)-1):
+			app.logger.debug(val)
+			f.write(ls_cats[val] + "\n")
 	else:
 		f.write(string2)
-	f.close()	
-	#os.system("make -C ../twitbot web")
-	#os.system("../twitbot/web_bot.exe")	
-	return render_template('twit.html')#flask.render_template('twit.html')
+	f.write(ls_cats[-1])
+	f.close()
+
+	#execute commands to execute the C++ command
+	os.system("make -C ../twitbot web")
+	os.system("../twitbot/web_bot.exe")	
+	return render_template('twit.html')
+
+
 app.debug = True
 if app.debug:
     app.logger.setLevel(logging.DEBUG)

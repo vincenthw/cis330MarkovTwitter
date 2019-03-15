@@ -22,7 +22,6 @@ int main()
 
 	if(funct == "handle"){
 		while(!f.eof()){
-			std::cout << "Made it here" << std::endl;
 			std::getline(f, data);
 			if (!twitWrapper.isValidUsername(data)) {
 				std::cout << "Invalid username, try again." << std::endl;
@@ -30,12 +29,12 @@ int main()
 			std::cout << "getting data from" << data << std::endl;
 			tweet.append(twitWrapper.getTweetsByUser(data, 100, true)); 
 		}
-//		tweet = twitWrapper.getTweetsByUser(data, 200, true);
 	}
 	else if (funct == "keyword"){
+		std::cout << "searching keyword: " << std::endl;
 		while(!f.eof()){
 			std::getline(f, data);
-			tweet.append(twitWrapper.searchTwitter(data, 3));
+			tweet.append(twitWrapper.searchTwitter(data, 2));
 		}
 	}
 
@@ -50,8 +49,8 @@ int main()
 	std::string ourTweet = chain.sentenceGen();
 
 	//check if tweet is too big for a tweet if it is just tweet what is can be fit
-	if(ourTweet.size() > 280){
-		ourTweet.substr(0, 280);
+	if(ourTweet.size() > 130){
+		ourTweet.substr(0, 130);
 		tweetIt(twitWrapper, ourTweet);
 	}
 	else{

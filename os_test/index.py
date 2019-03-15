@@ -23,7 +23,11 @@ def submit():
 
 	#open file to write in data that C++ function will access
 	f = open("hack_test.txt", "w")
+
+	#write the method selected to the file
 	f.write(string1 + "\n")
+
+	#check to see if multiple categories or user were input is so write each one on its own line in outfile
 	if len(ls_cats) != 0:
 		for val in range(0, len(ls_cats)-1):
 			app.logger.debug(val)
@@ -33,8 +37,7 @@ def submit():
 	f.write(ls_cats[-1])
 	f.close()
 
-	#execute commands to execute the C++ command
-	os.system("make -C ../twitbot web")
+	#execute commands to execute the C++ webpageDriver.cpp
 	os.system("../twitbot/web_bot.exe")	
 	return render_template('twit.html')
 

@@ -67,7 +67,7 @@ std::string TwitcurlWrapper::cleanText(std::string input)
 *
 * output:       string containing all of the tweets
 */
-std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets)
+std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets) //int numTweets
 {
     if (numTweets > 100) numTweets = 100;
 
@@ -82,6 +82,7 @@ std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets)
 
     // parse reply json
     nlohmann::json parsedReply = nlohmann::json::parse(reply)["statuses"];
+    //std::cout << reply << std::endl; // output raw response json, for debugging
 
     std::string combinedTweets = "";
     for (nlohmann::json::iterator it = parsedReply.begin(); it != parsedReply.end(); it++)

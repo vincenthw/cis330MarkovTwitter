@@ -1,27 +1,25 @@
 #include "commandLineIO.hpp"
+#include <experimental/filesystem>
 
-// Function to prompt users for search queries that will be used in markov chain
+bool is_alphanum(string &str) {
+    return (str.find_first_not_of("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos);
+}
+
 string getInputSearch(TwitcurlWrapper twitWrapper) {
-    string search = "";
+    string query;
+    bool running = true;
+    while (running) {
+        cout << "Enter a search query: ";
+        getline(cin, query);
 
-    while (search == "") {
-        cout << "Please insert a category of interest: ";
-        cin >> search;
-        if (search[0] == '#') {
-            cout << "You can not enter hashtags for your search" << endl;
-            cin.ignore(1000000, '\n');
-            cin.clear();
-            search = "";
+        if (!is_alphanum(query)) {
+            cout << "Invalid character. Alphanumeric only." << endl;
+            continue;
+        } else {
+            running = false;
         }
     }
-
-    if (search != "") {
-        if (search[0] != '#') {
-            // uses twitter "search" functionality
-            string searchTweets = twitWrapper.searchTwitter(search, 1);
-            cout << searchTweets << endl;
-        }
-    }
+    return twitWrapper.searchTwitter(query, 100);
 }
 
 // Function to prompt user for twitter usernames that will be used in markov chain
@@ -62,4 +60,56 @@ OUTER:
     }
 
     return combinedTweets;
+}
+
+string getInputTextFile(TwitcurlWrapper twitWrapper) {
+    
+    cout << "Select file to read from:" << endl;
+
+    namespace fs = std::experimental::filesystem;
+    
+    string path = "./text_files/";
+    vector<string> filePaths;
+    string file;
+
+    int i = 0;
+    for (const auto & entry : fs::directory_iterator(path)) {
+        file = entry.path();
+        cout << "[" << i << "] -- " << file << endl;
+        filePaths.push_back(entry.path());
+        i++;
+    }
+
+    string result;
+    while (true) {
+        cout << "Make selection: ";
+        string choice;
+        getline(cin, choice);
+        cout << endl;
+        int numChoice;
+        try {
+            numChoice = stoi(choice);
+        } catch (...) {
+            continue;
+        }
+        if (0 <= numChoice && static_cast<unsigned int>(numChoice) < filePaths.size()) {
+            return filePaths.at(numChoice);
+        }
+    }
+}
+
+int getNumSentences() {
+    string choice;
+    int numChoice;
+    while (true) {
+        cout << "How many sentences would you like to generate?: ";
+        getline(cin, choice);
+        cout << endl;
+        try {
+            numChoice = stoi(choice);
+        } catch (...) {
+            continue;
+        }
+        return numChoice;
+    }
 }

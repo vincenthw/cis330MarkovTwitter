@@ -99,6 +99,8 @@ std::string TwitcurlWrapper::searchTwitter(std::string query, int numTweets)
         }
     }
 
+    combinedTweets = cleanText(combinedTweets);
+
     return combinedTweets;
 }
 
@@ -162,6 +164,10 @@ std::string TwitcurlWrapper::getTweetsByUser(std::string username, int numTweets
 */
 bool TwitcurlWrapper::isValidUsername(std::string username)
 {
+    if (username.find(' ') != std::string::npos) {
+        return false;
+    }
+
     userGet(username);
     std::string reply;
     getLastWebResponse(reply);

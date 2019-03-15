@@ -10,6 +10,13 @@ worked together to merge/link/and implement our compentents (twitcurl, webpage, 
 
 3/14
 	-final group meeting before the big day
-		-constructed tweets from the marvok chain are not automatically tweeted to the AI profile
-		-added method to webpage so that multipul keywords or twitter handels can now be used together
+		- constructed tweets from the marvok chain are now automatically tweeted to the AI profile
+		- added method to webpage, Flask, and webpage driver so that multipul keywords or twitter handels can now be used together just like the command line.
+		- spent a long part of the day debugging and were sucsessful at eliminating bugs on our end.
+		- the command line option is now fully functional and is able to construct tweets
+		- reached our tweet limit on the api. tweets are looking good
+		- README updated
+		- began working on presentation
+	subnotes
+		- the age of the api really shows
 		
